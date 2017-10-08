@@ -1,11 +1,11 @@
-package com.core.com.core.controller;
+package com.core.controller;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 @Controller
 public class IndexCtrl {
-    @RequestMapping("/")
+    @RequestMapping("/home")
     public String index(){
         return "index";
     }
