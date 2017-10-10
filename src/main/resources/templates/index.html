@@ -1,16 +1,21 @@
 <!DOCTYPE html>
-<html ng-app="youBuyApp">
+<html data-ng-app="youBuyApp">
 <head>
     <title>YouBuy</title>
-    <script src="../static/app.js"></script>
-    <script src="../static/angular/angular.min.js"></script>
-    <script src="../static/js/controller/indexCtrl.js"></script>
-    <script src="../static/angular/angular-route.min.js"></script>
-</head>
-<body ng-controller="indexCtrl">
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.5/angular.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.5/angular-route.js"></script>
+    <script src="./angular/angular.min.js"></script>
+    <script src="./angular/angular-route.js"></script>
+    <script src="./js/app.js"></script>
+    <script src="./js/controller/indexCtrl.js" ></script>
+    <script src="./js/controller/promocaoCtrl.js"></script>
+    <base href="/" />
 
-oi
-<div ng-view = "ng-view"></div>
+</head>
+<body>
+    <a href="/promocao" >Promoção</a>
+<h1>Olá!!!</h1>
+<div data-ng-view = "ng-view"></div>
 <!--<div ng-include="'footer/footer.html'"></div>-->
 </body>
 </html>

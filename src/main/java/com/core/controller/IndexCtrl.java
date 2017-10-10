@@ -5,7 +5,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 
 @Controller
 public class IndexCtrl {
-    @RequestMapping("/home")
+    @RequestMapping("/")
     public String index(){
         return "index";
     }
