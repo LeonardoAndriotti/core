@@ -1,11 +1,15 @@
 var youBuyApp = angular.module("youBuyApp", ['ngRoute']);
 
-youBuyApp.config(function($routeProvider, $locationProvider){
+youBuyApp.config(function ($routeProvider, $locationProvider) {
     $routeProvider
-    .when("/promocao",{
-        templateUrl : 'views/promocao.html',
-        controller : 'promocaoController'
-    }).otherwise({
+        .when("/search", {
+            templateUrl: 'views/search.html',
+            controller: 'searchController'
+        })
+        .when("/promocao", {
+            templateUrl: 'views/promocao.html',
+            controller: 'promocaoController'
+        }).otherwise({
         rediretTo: '/'
     });
 
