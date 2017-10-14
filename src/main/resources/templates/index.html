@@ -2,6 +2,7 @@
 <html data-ng-app="youBuyApp">
 <head>
     <title>YouBuy</title>
+
     <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.5/angular.min.js"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.5/angular-route.js"></script>
     <script src="./angular/angular.min.js"></script>
@@ -9,13 +10,17 @@
     <script src="./js/app.js"></script>
     <script src="./js/controller/indexCtrl.js" ></script>
     <script src="./js/controller/promocaoCtrl.js"></script>
+    <link rel="stylesheet" type="text/css" href="./css/index.css"/>
+   <link rel="stylesheet" type="text/css" href="./css/boostrap/bootstrap.css"/>
+
     <base href="/" />
+
+
 
 </head>
 <body>
-    <a href="/promocao" >Promoção</a>
-<h1>Olá!!!</h1>
+<div ng-include="'./views/header.html'"></div>
 <div data-ng-view = "ng-view"></div>
-<!--<div ng-include="'footer/footer.html'"></div>-->
+<div ng-include="'./views/footer.html'"></div>
 </body>
 </html>
