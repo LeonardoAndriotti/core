@@ -10,21 +10,18 @@ import javax.persistence.Id;
 import javax.persistence.MappedSuperclass;
 
 
-@MappedSuperclass
 public class User implements Serializable {
+
 	private static final long serialVersionUID = 1L;
-	@Id
-	@GeneratedValue(strategy = GenerationType.IDENTITY)
+
 	private BigDecimal id;
 
 	private String fone;
 
 	private String mobile;
 
-	@Embedded
 	private Andress andress;
 
-	@Embedded
 	private Login login;
 
 	public User(BigDecimal id) {

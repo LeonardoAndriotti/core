@@ -5,14 +5,12 @@ import java.math.BigDecimal;
 import javax.persistence.Column;
 import javax.persistence.Embeddable;
 
-@Embeddable
 public class Login {
 
-    @Column(length = 100)
+
 	private String login;
     
-    @Column(length = 16)
-	private String password;
+    private String password;
     
 	
 	

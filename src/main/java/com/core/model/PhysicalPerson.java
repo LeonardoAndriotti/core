@@ -9,14 +9,10 @@ import javax.persistence.Table;
 
 import com.core.model.User;
 
-@Entity
-@Table(name = "physical_person")
-@AttributeOverride(name = "createDate", column = @Column(name = "std_entry_date"))
 public class PhysicalPerson extends User {
 
 	private static final long serialVersionUID = 1L;
 
-	@Column(length = 60)
 	private String name;
 
 	private String nickname;
