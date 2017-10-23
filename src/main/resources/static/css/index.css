@@ -63,8 +63,9 @@ a:hover{
 }
 footer{
 	position: absolute;
-	bottom: 0;
+	bottom: auto;
 	width: 100%;
+	padding-top: 20px;
 }
 footer ul li a{
 	color: #fff!important;
