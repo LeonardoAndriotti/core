@@ -12,7 +12,7 @@ youBuyApp.config(function ($routeProvider, $locationProvider) {
     })
     .when("/cadastro-produto", {
         templateUrl: 'views/cadastro-produto.html',
-        controller: 'cadastroProdutoController'
+        controller: 'cadastroProdutoController as vm'
     })
     .otherwise({
         rediretTo: '/'
