@@ -33,12 +33,12 @@ ul{
 	list-style:none;
 }
 a{
-	color: #000;
-	text-decoration: none;
+	color: #000!important;
+	text-decoration: none!important;
 }
 a:hover{
-	color: #000;
-	text-decoration: none;
+	color: #000!important;
+	text-decoration: none!important;
 }
 .headerTwo ul li {
 	display: inline-block;
@@ -68,5 +68,8 @@ footer{
 	margin-top: 5%;
 }
 footer ul li a{
+	color: #fff!important;
+}
+.btn-primary{
 	color: #fff!important;
 }
