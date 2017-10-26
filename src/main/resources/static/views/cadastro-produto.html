@@ -3,51 +3,64 @@
         <div class="col-3"></div>
         <div class="col-6">
             <form>
-                <h2 style="text-align: center;">Cadastro de Produto</h2>
+                <h2 style="text-align: center;">Cadastro de produto</h2>
                 <div class="form-group">
                     <label for="nome">Nome</label>
-                    <input type="text" class="form-control" id="nome" required>
+                    <input ng-model="vm.product.name" type="text" class="form-control" id="nome" required>
                 </div>
                 <div class="form-group">
                     <label for="preco">Preço</label>
-                    <input type="text" class="form-control" id="preco" required>
+                    <input ng-model="vm.product.price" type="number" class="form-control" id="preco" required>
                 </div>
                 <div class="form-group">
                     <label for="quantidade">Quantidade</label>
-                    <input class="form-control" type="number" value="1" id="quantidade" required>
+                    <input ng-model="vm.product.quantity" class="form-control" type="number" value="1" id="quantidade"
+                           required>
                 </div>
                 <div class="form-group">
                     <label for="categoria">Categoria</label>
-                    <select class="form-control" id="categoria" required>
-                        <option>Açougue</option>
-                        <option>Bebida</option>
-                        <option>Confeitaria</option>
-                        <option>Congelados</option>
-                        <option>Eletrodoméstico</option>
+                    <select ng-model="vm.product.category" class="form-control" id="categoria" required>
+                        <option value="{{vm.category1}}">Categoria Teste</option>
                     </select>
                 </div>
                 <div class="form-group">
                     <label for="data">Data de Validade</label>
-                    <input class="form-control" type="date" value="2017-12-31" id="data" required>
+                    <input ng-model="vm.product.shelfLife" class="form-control" type="date" value="2017-12-31" id="data"
+                           required>
                 </div>
                 <div class="form-group">
-                    <label for="descricao">Descrição</label>
-                    <textarea class="form-control" id="descricao" rows="3"></textarea>
+                    <label for="imagem">Mercado</label>
+                    <input ng-model="vm.product.shopping" type="text" class="form-control" id="mercado" required>
+                </div>
+                <div class="form-group">
+                    <label for="peso">Peso</label>
+                    <input ng-model="vm.product.weight" type="number" class="form-control" id="peso">
+                </div>
+                <div class="form-group">
+                    <label for="unidade">Unidade</label>
+                    <input ng-model="vm.product.unit" type="number" class="form-control" id="unidade">
+                </div>
+                <div class="form-group">
+                    <label for="unidadeDeMedida">Unidade de Medida</label>
+                    <input ng-model="vm.product.unitOfMeasurement" type="number" class="form-control"
+                           id="unidadeDeMedida">
                 </div>
                 <div class="form-group">
                     <label for="imagem">Carregar Imagem</label>
-                    <input type="file" class="form-control-file" id="imagem">
-                    <small id="imagemDescricao" class="form-text text-muted">
-                        A imagem deve ser do tipo JPG e ter menos de 1mb de tamanho.
-                    </small>
+                    <input ng-model="vm.product.image" type="text" class="form-control" id="imagem"
+                           placeholder="Digite a URL da imagem aqui">
+                </div>
+                <div class="form-group">
+                    <label for="descricao">Descrição</label>
+                    <textarea ng-model="vm.product.description" class="form-control" id="descricao" rows="3"></textarea>
                 </div>
                 <div class="form-check">
-                    <label class="form-check-label">
-                        <input type="checkbox" class="form-check-input">
+                    <label for="status" class="form-check-label">
+                        <input ng-model="vm.product.status" type="checkbox" class="form-check-input" id="status">
                         Ativo
                     </label>
                 </div>
-                <button type="submit" class="btn btn-primary">Cadastrar</button>
+                <button type="submit" ng-click="vm.cadastrarProduto()" class="btn btn-primary">Cadastrar</button>
             </form>
         </div>
         <div class="col-3"></div>

@@ -1,19 +1,28 @@
-youBuyApp.controller("cadastroProdutoController", function($scope, $http){
+(function () {
+    'use strict';
 
-    $scope.produtos = [];
+    angular
+        .module('youBuyApp')
+        .controller('cadastroProdutoController', CadastroProdutoController);
 
-    carregarCadastroProduto = function(){
-        $http({method:'GET', url: 'http://localhost:8092/product'})
-        .then(function(response){
-            $scope.produtos = response.data;
+    CadastroProdutoController.$inject = ['$http'];
 
-        }, function(response){
-            console.log(response.data);
-            console.log(response.status);
+    function CadastroProdutoController($http) {
 
-        });
+        var vm = this;
 
-    };
+        vm.cadastrarProduto = cadastrarProduto;
+        vm.category1 = {id:1};
 
-    carregarCadastroProduto();
-});
+        function cadastrarProduto() {
+            vm.product.category = vm.category1;
+            $http.post('http://localhost:8092/product', vm.product)
+                .then(function (response) {
+                    console.log("Deu bom!");
+
+                }, function (response) {
+                    console.log("Deu ruim! " + JSON.stringify(response));
+                });
+        }
+    }
+}());
