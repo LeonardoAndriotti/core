@@ -62,8 +62,8 @@ a:hover{
 	box-shadow: 0 3px 3px -2px rgba(0,0,0,.2);
 }
 footer{
-	position: absolute;
-	bottom: 0;
+    clear: both;
+	bottom: auto;
 	width: 100%;
 }
 footer ul li a{
