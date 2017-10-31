@@ -10,9 +10,9 @@ youBuyApp.config(function ($routeProvider, $locationProvider) {
         templateUrl: 'views/promocao.html',
         controller: 'promocaoController'
     })
-    .when("/cadastro-produto", {
-        templateUrl: 'views/cadastro-produto.html',
-        controller: 'cadastroProdutoController as vm'
+    .when("/product-registration", {
+        templateUrl: 'views/product-registration.html',
+        controller: 'productRegistrationController as vm'
     })
     .otherwise({
         rediretTo: '/'
