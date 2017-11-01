@@ -14,6 +14,10 @@ youBuyApp.config(function ($routeProvider, $locationProvider) {
         templateUrl: 'views/cadastro-produto.html',
         controller: 'cadastroProdutoController as vm'
     })
+    .when("/carrer", {
+        templateUrl: 'views/carrer.html',
+        controller: 'carrerController'
+    })
     .otherwise({
         rediretTo: '/'
     });

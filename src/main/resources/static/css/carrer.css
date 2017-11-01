@@ -1,0 +1,85 @@
+.carrinho .titulo {
+	margin-bottom: 50pt;
+}
+
+.carrinho .div-tabela {
+	font-size: 15pt;
+	margin-bottom: 80pt;
+}
+
+.carrinho .div-tabela .titulo-item {
+	font-size: 20pt !important;
+	color: #7a7a7a;
+	margin-bottom: 25pt;
+}
+
+.carrinho .div-tabela .nav .icone img {
+	width: 30%;
+}
+
+.carrinho .div-tabela .item {
+	display: flex;
+	align-items: center;
+	color: #a9a9a9;
+}
+
+.carrinho .div-tabela .item .merc {
+	font-size: 10pt;
+}
+
+.carrinho .div-tabela ul li div {
+	padding: 5pt 0pt;
+}
+
+.carrinho .item .icone {
+	text-align: center;
+}
+
+.carrinho .item .row {
+	display: flex;
+	align-items: center;
+}
+
+.carrinho .item .form-control {
+	display: initial !important;
+	width: 50%;
+}
+
+.carrinho .item .star-primary {
+	position: absolute;
+	border-top: solid 70pt;
+	width: 2px;
+	top: 0;
+	right: 50%;
+	margin: 0pt;
+	z-index: -1;
+}
+/*Subtotal*/
+.carrinho .subtotal .row {
+	text-align: right;
+	margin: 0;
+}
+
+.carrinho .subtotal .titulo {
+	font-size: 20pt !important;
+	color: #7a7a7a;
+}
+
+.carrinho .subtotal .valor {
+	font-size: 20pt;
+	color: #a9a9a9;
+}
+
+.carrinho .subtotal .star-primary {
+	border-top: 1px solid #a9a9a9;
+}
+.carrinho .comprar {
+	text-align: right;
+}
+/*.subtotal .comprar .btn {
+        padding: 1rem 1.5rem;
+        font-size: 1.5rem;
+    }*/
+.carrinho .fa-trash-o {
+	cursor: pointer;
+}
