@@ -3,21 +3,20 @@
 
     angular
         .module('youBuyApp')
-        .controller('cadastroProdutoController', CadastroProdutoController);
+        .controller('productRegistrationController', ProductRegistrationController);
 
-    CadastroProdutoController.$inject = ['$http'];
+    ProductRegistrationController.$inject = ['$http'];
 
-    function CadastroProdutoController($http) {
+    function ProductRegistrationController($http) {
 
         var vm = this;
 
-        vm.cadastrarProduto = cadastrarProduto;
+        vm.registerProduct = registerProduct;
 
-        function cadastrarProduto() {
+        function registerProduct() {
             $http.post('http://localhost:8092/product', vm.product)
                 .then(function (response) {
                     console.log("Deu bom!");
-
                 }, function (response) {
                     console.log("Deu ruim! " + JSON.stringify(response));
                 });
