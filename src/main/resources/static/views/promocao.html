@@ -1,7 +1,66 @@
-<div>
-  <h1>Pagina de promoções</h1>
-  <div data-ng-repeat="pro in produtos">
-    {{pro.id + " " + pro.name}}
-teste
-  </div>
+<div class="container">
+    <section class="painel">
+        <div class="promocao">
+            <div>
+                 <h2>Promoções</h2>
+            </div>
+            <div>
+                 <input type="button" value="Comprar" class="button-carrinho"></input>
+            </div>
+        </div>
+        <ol>
+            <div class="div-li">
+
+                <li data-ng-repeat="pro in produtos" class="li" ng-cloak>
+                    <input type="checkbox" ng-checked = "ixists(pro, selected)" ng-click = "toggle(pro, selected)" >
+                       <span ng-if="exists(pro , selected)">selecionado</span>
+                    </input>
+                    <a href="/{{pro.id}}" class="link">
+                        <div class="figure">
+                            <figure> 
+                              <span>{{"Cód. " + pro.id}}</span></br>
+                                <img src="{{'/image/' + pro.image}}">
+                                <figcaption> 
+                                    <span>{{"Nome: " + pro.name}}</span></br>
+                                    <span>{{"Descrição: " + pro.description}}</span></br>
+                                    <span>{{"R$: " + pro.price}}</span></br>
+                                </figcaption>
+                            </figure>
+                        </div>
+                    </a>
+                    <form name="myForm" class="form-horizontal">
+                        <div class="form-group" ng-class="{'has-error': myForm.myDecimal.$invalid}">
+                           <div class="col-sm-12 span-input">
+                               <div class="span"><span >Kg:</span></div>
+                              <div class="input"><input type="number" class="form-control" name="myDecimal" placeholder="Qtde."
+                                   ng-model="myDecimal" ng-pattern="/^[0-9]+(\.[0-9]{1,2})?$/" step="0.01"
+                                          min="0" required />
+                              </div>
+                               <span class="help-block" ng-show="!myForm.myDecimal.$valid">Valor inválido!</span>
+                           </div>
+                        </div>
+                    </form>
+                         <!--<div class="form-group" >
+                            <div class="col-sm-10">
+                                <input type="text" class="form-control" ng-model="myDecimal" disabled />
+                            </div>-->
+                         </div>
+                </li>
+            </div>
+        </ol>
+    </section>
+    <!--  <section class="painel mais-vendidos">
+        <h2>Mais Vendidos</h2>
+        <ol>
+            <li>
+                <a href="produto.html">
+                    <figure>
+                        <img src="img/produtos/miniatura7.png">
+                        <figcaption>Fuzz Cardigan por R$ 129,90</figcaption>
+                    </figure>
+                </a>
+            </li>
+        </ol>
+        <button type="button">Mostrar mais</button>
+    </section>-->
 </div>

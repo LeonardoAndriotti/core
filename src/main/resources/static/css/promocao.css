@@ -1,0 +1,90 @@
+.container {
+	margin: 0 auto;
+	width: 980px;
+}
+
+.painel {
+	margin: 10px 0;
+	padding: 10px;
+	width: 100%;
+}
+
+.figure {
+    width: auto;
+    height: auto;
+}
+
+.figure span {
+    text-align: center;
+    color: #000000;
+}
+
+.div-li{
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.li {
+    flex: 1 auto 142px;
+     border-bottom: 1px solid #ddd;
+     border-right: 1px solid #ddd;
+     display: inline-block;
+     vertical-align: top;
+     width: 142px;
+     margin: 3px;
+     padding-bottom: 10px;
+}
+
+.painel h2 {
+	font-size: 24px;
+	font-weight: bold;
+	text-transform: uppercase;
+	margin-bottom: 10px;
+}
+
+.painel a {
+	color: #333;
+	font-size: 14px;
+	text-align: center;
+	text-decoration: none;
+}
+.span-input{
+    display: table;
+}
+.span{
+    float: left;
+    width: 30%
+}
+.input{
+   margin-left: 30%;
+}
+.promocao {
+    display: inline-block;
+
+}
+.button-carrinho {
+    padding: 4px 11px;
+
+    border: 1px solid #ffcc00;
+    -moz-border-radius: 8px;
+    -webkit-border-radius: 8px;
+    border-radius: 8px;
+
+    background-color: #ffcc00 !important;
+    background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#ffcc00), color-stop(100%,#ff6600)) !important;
+    background: -webkit-linear-gradient(top, #ffcc00, #ff6600) !important;
+    background: -moz-linear-gradient(top, #ffcc00, #ff6600) !important;
+    background: -ms-linear-gradient(top, #ffcc00, #ff6600) !important;
+    background: -o-linear-gradient(top, #ffcc00, #ff6600) !important;
+    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ffcc00', endColorstr='#ff6600',GradientType=0 );
+
+
+    font-family:"Segoe UI";
+    font-weight: bold;
+    color: #fff;
+    text-shadow: 0 1px 0 #666;
+
+    box-shadow: inset 0 1px 1px #fff, 0 2px 3px #666;
+    cursor:pointer;
+    position: relative;
+}
