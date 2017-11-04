@@ -61,59 +61,34 @@
 .promocao div{
     display: inline-block;
 }
-
+.button {
+    margin-right: auto;
+}
 .lista-produtos{
     display: block;
     margin: auto;
 }
-.button-ordenacao {
+.select-ordenacao {
     padding: 4px 11px;
-
+    width: 110px;
+    height: 35px;
     border: 1px solid #ffcc00;
-    -moz-border-radius: 8px;
-    -webkit-border-radius: 8px;
     border-radius: 8px;
-
-    background-color: #ffcc00 !important;
-    background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#ffcc00), color-stop(100%,#ff6600)) !important;
-    background: -webkit-linear-gradient(top, #ffcc00, #ff6600) !important;
-    background: -moz-linear-gradient(top, #ffcc00, #ff6600) !important;
-    background: -ms-linear-gradient(top, #ffcc00, #ff6600) !important;
-    background: -o-linear-gradient(top, #ffcc00, #ff6600) !important;
-    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ffcc00', endColorstr='#ff6600',GradientType=0 );
-
+    background-color: #b22222 !important;
     font-family:"Segoe UI";
     font-weight: bold;
     color: #fff;
     text-shadow: 0 1px 0 #666;
-
-    box-shadow: inset 0 1px 1px #fff, 0 2px 3px #666;
-    cursor:pointer;
-    position: relative;
 }
 .button-carrinho {
     padding: 4px 11px;
-
+    width: 110px;
+    height: 35px;
     border: 1px solid #ffcc00;
-    -moz-border-radius: 8px;
-    -webkit-border-radius: 8px;
     border-radius: 8px;
-
-    background-color: #ffcc00 !important;
-    background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#ffcc00), color-stop(100%,#ff6600)) !important;
-    background: -webkit-linear-gradient(top, #ffcc00, #ff6600) !important;
-    background: -moz-linear-gradient(top, #ffcc00, #ff6600) !important;
-    background: -ms-linear-gradient(top, #ffcc00, #ff6600) !important;
-    background: -o-linear-gradient(top, #ffcc00, #ff6600) !important;
-    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ffcc00', endColorstr='#ff6600',GradientType=0 );
-
-
+    background-color: #b22222 !important;
     font-family:"Segoe UI";
     font-weight: bold;
     color: #fff;
     text-shadow: 0 1px 0 #666;
-
-    box-shadow: inset 0 1px 1px #fff, 0 2px 3px #666;
-    cursor:pointer;
-    position: relative;
 }
