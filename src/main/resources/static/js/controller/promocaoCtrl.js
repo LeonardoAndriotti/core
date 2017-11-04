@@ -17,7 +17,12 @@ youBuyApp.controller("promocaoController", function($scope, $http){
         });
 
     },
-
+    
+        $scope.ordenar = function(keyname){
+            $scope.sortKey = keyname;
+            $scope.reverse = !$scope.reverse;
+    },
+    
     $scope.toggle = function(item, list){
         var idx = list.indexOf(item);
         if (idx > -1) {
