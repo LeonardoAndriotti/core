@@ -1,7 +1,8 @@
 youBuyApp.controller("carrerController", function($scope, $http){
 
     $scope.carrer = [];
-
+    $scope.value = 22.90;
+    
     carregarCarrer = function(){
         $http({method:'GET', url: 'http://localhost:8093/order'})
         .then(function(response){

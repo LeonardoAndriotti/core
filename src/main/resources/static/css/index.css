@@ -20,11 +20,17 @@
 .mr{
 	margin-right: 0 !important;
 }
+.fs{
+	font-size: 0 !important;
+}
 .font-principal{
 	font-family: 'Oswald', sans-serif;
 	font-weight: 900;
 	color: #fff;
 	font-size: 26pt;
+}
+.font-red-1{
+	color: #BC2026 !important;
 }
 .shadow-bottom{
 	box-shadow: 0 2px 4px -1px rgba(0,0,0,0.06), 0 4px 5px 0 rgba(0,0,0,0.06), 0 1px 10px 0 rgba(0,0,0,0.08);
@@ -53,6 +59,9 @@ a:hover{
 }
 .font-white{
 	color:#fff!important;
+}
+.fa-shopping-cart {
+	font-size: 25pt !important;
 }
 .header-login a:hover{
 	color:#ddd!important;
