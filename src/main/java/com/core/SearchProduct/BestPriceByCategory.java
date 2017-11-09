@@ -40,14 +40,14 @@ public class BestPriceByCategory {
 
     public List<ProductDTO> lowerPrice(Map<BigDecimal, List<ProductDTO>> map) {
         List<ProductDTO> dtos = new ArrayList<>();
-        for (BigDecimal a:
-                map.keySet() ) {
-            if(map.get(a).size()>3){
+        for (BigDecimal a :
+                map.keySet()) {
+            if (map.get(a).size() > 3) {
                 dtos.add(map.get(a).get(0));
                 dtos.add(map.get(a).get(1));
                 dtos.add(map.get(a).get(2));
-            }else{
-                for (ProductDTO dto:
+            } else {
+                for (ProductDTO dto :
                         map.get(a)) {
                     dtos.add(dto);
                 }
@@ -57,7 +57,6 @@ public class BestPriceByCategory {
 
         return dtos;
     }
-
 
     public List<ProductDTO> search(String url) {
         RestTemplate restTemplate = new RestTemplate();

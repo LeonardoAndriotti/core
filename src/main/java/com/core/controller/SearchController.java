@@ -46,8 +46,23 @@ public class SearchController {
                 restTemplate.exchange(url,
                         HttpMethod.GET, null, new ParameterizedTypeReference<List<CategoryDTO>>() {
                         });
+            //carrega arvore de categoria falta fazer front
+        //return categoryTree.rootCategory(response.getBody());
+        return response.getBody();
+    }
 
-        return categoryTree.rootCategory(response.getBody());
+    @RequestMapping(value = "/category/{id}",method = RequestMethod.GET)
+    public List<ProductDTO> searchCategory(@PathVariable Long id) throws RestClientException, IOException {
+        CategoryTree categoryTree = new CategoryTree();
+
+        String url = "http://localhost:8092/api/product/category/"+id;
+        RestTemplate restTemplate = new RestTemplate();
+        ResponseEntity<List<ProductDTO>> response =
+                restTemplate.exchange(url,
+                        HttpMethod.GET, null, new ParameterizedTypeReference<List<ProductDTO>>() {
+                        });
+
+        return response.getBody();
     }
 
     @RequestMapping(value = "/category/html",method = RequestMethod.GET)

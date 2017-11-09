@@ -1,19 +1,7 @@
 <div class="row col-12" ng-controller="searchController">
-    <div class="col-2 menu-lateral">
-        <div id="exampleAccordion" data-children=".item">
-            <div class="item">
-                <div class="main p-2">
-                    <a data-toggle="collapse" data-parent="#exampleAccordion" href="#exampleAccordion1" aria-expanded="true" aria-controls="exampleAccordion1">
-                        AÇOUGUE
-                    </a>
-                    <i class="fa fa-chevron-right" aria-hidden="true"></i>
-                </div>
-                <div id="exampleAccordion1" class="collapse" role="tabpanel">
-                    <p class="mb-3">
-                        Carne
-                    </p>
-                </div>
-            </div>
+    <div class="col-2 menu-lateral pr-0">
+        <div class="category"ng-repeat="category in categorys">
+            <span ng-click="searchForCategory(category.id)"><strong>{{category.name}}</strong></span>
         </div>
     </div>
     <div class="col-10 corpo mt-3">

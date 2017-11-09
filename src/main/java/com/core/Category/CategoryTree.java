@@ -10,12 +10,8 @@ import static java.util.Objects.isNull;
 
 public class CategoryTree {
 
-
-
-
     public List<CategoryDTO> rootCategory(List<CategoryDTO> categorys) {
         List<CategoryDTO> categoryJson = new LinkedList<>();
-
         for (CategoryDTO category : categorys) {
             if (isNull(category.getIdFather())) {
                 category.setChildren(leafCategory(categorys, category));
@@ -32,7 +28,6 @@ public class CategoryTree {
                 leafCategory.setChildren(leafCategory(categoryChildren, leafCategory));
                 categoryJsonChildren.add(leafCategory);
             }
-
         }
         return categoryJsonChildren;
     }

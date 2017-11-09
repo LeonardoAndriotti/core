@@ -73,3 +73,14 @@ footer ul li a{
 .btn-primary{
 	color: #fff!important;
 }
+.menu-lateral .category{
+	padding: 5%;
+	font-size: 12pt;
+}
+.menu-lateral .category span{
+	color:#818387;
+}
+.menu-lateral .category:hover, .menu-lateral .category span:hover{
+	cursor:pointer;
+	background-color: #e0e2e5;
+}
