@@ -1,14 +1,15 @@
 package com.core.controller;
 
+import com.core.Category.CategoryTree;
+import com.core.Category.HtmlCategoryMenu;
+import com.core.DTO.CategoryDTO;
 import com.core.DTO.ProductDTO;
+import com.core.SearchProduct.BestPriceByCategory;
 import org.springframework.core.ParameterizedTypeReference;
 import org.springframework.http.HttpMethod;
 import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 import org.springframework.web.client.RestClientException;
 import org.springframework.web.client.RestTemplate;
 
@@ -19,15 +20,59 @@ import java.util.List;
 @RequestMapping(value = "/api")
 public class SearchController {
 
-    @GetMapping(value = "/{name}",produces = MediaType.APPLICATION_JSON_VALUE)
-    public List<ProductDTO> searchProduct(@PathVariable String product) throws RestClientException, IOException {
+    HtmlCategoryMenu htmlCategoryMenu = new HtmlCategoryMenu();
 
-        String url = "https://api-product.herokuapp.com/product/" + product;
+    @RequestMapping(value = "/{name}",method = RequestMethod.GET)
+    public List<ProductDTO> searchProduct(@PathVariable String name) throws RestClientException, IOException {
+        BestPriceByCategory bestPriceByCategory = new BestPriceByCategory();
+        return bestPriceByCategory.ProdutoName(name);
+    }
+
+
+    @RequestMapping(value = "/",method = RequestMethod.GET)
+    public List<ProductDTO> searchProductAll() throws RestClientException, IOException {
+        BestPriceByCategory bestPriceByCategory = new BestPriceByCategory();
+        return bestPriceByCategory.ProductAll();
+
+    }
+
+    @RequestMapping(value = "/category/all",method = RequestMethod.GET)
+    public List<CategoryDTO> searchCategoryAll() throws RestClientException, IOException {
+        CategoryTree categoryTree = new CategoryTree();
+
+        String url = "http://localhost:8092/product/category";
+        RestTemplate restTemplate = new RestTemplate();
+        ResponseEntity<List<CategoryDTO>> response =
+                restTemplate.exchange(url,
+                        HttpMethod.GET, null, new ParameterizedTypeReference<List<CategoryDTO>>() {
+                        });
+            //carrega arvore de categoria falta fazer front
+        //return categoryTree.rootCategory(response.getBody());
+        return response.getBody();
+    }
+
+    @RequestMapping(value = "/category/{id}",method = RequestMethod.GET)
+    public List<ProductDTO> searchCategory(@PathVariable Long id) throws RestClientException, IOException {
+        CategoryTree categoryTree = new CategoryTree();
+
+        String url = "http://localhost:8092/api/product/category/"+id;
         RestTemplate restTemplate = new RestTemplate();
         ResponseEntity<List<ProductDTO>> response =
                 restTemplate.exchange(url,
                         HttpMethod.GET, null, new ParameterizedTypeReference<List<ProductDTO>>() {
                         });
-         return response.getBody();
+
+        return response.getBody();
     }
+
+    @RequestMapping(value = "/category/html",method = RequestMethod.GET)
+    public String searchCategoryHtml() throws RestClientException, IOException {
+       return htmlCategoryMenu.genereteHtml(searchCategoryAll());
+    }
+
+/*    public static void main(String[]args) throws IOException {
+        new SearchController().searchCategoryHtml();
+    }*/
+
+
 }

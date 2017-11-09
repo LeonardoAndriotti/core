@@ -1,49 +1,41 @@
-<div class="container">
-    <div class="row">
-        <div class="col">Menu Categoria</div>
-        <div>
-            <div class="row pb-3" style="margin-left: 2rem!important;margin-right: -1.8rem!important;">
-                <div class="col-lg-12">
-                    <div class="input-group">
-                        <input type="text" class="form-control" placeholder="Digite o Produto que procura aqui..." aria-label="Search for..." style="
-
+<div class="row col-12" ng-controller="searchController">
+    <div class="col-2 menu-lateral pr-0">
+        <div class="category"ng-repeat="category in categorys">
+            <span ng-click="searchForCategory(category.id)"><strong>{{category.name}}</strong></span>
+        </div>
+    </div>
+    <div class="col-10 corpo mt-3">
+        <div class="row pb-3" style="margin-left: 2rem!important;margin-right: -0.3rem!important;">
+            <div class="col-lg-12">
+                <div class="input-group">
+                    <input type="text" class="form-control" placeholder="Digite o Produto que procura aqui..." aria-label="Search for..." style="
+                height: 52px;" ng-model="busca">
+                    <span class="input-group-btn">
+							<button class="btn btn-secondary" type="button" style="
 							height: 52px;
-							">
-                        <span class="input-group-btn">
-								<button class="btn btn-secondary" type="button" style="
-								height: 52px;
-								"><i class="fa fa-search" aria-hidden="true"></i></button>
-							</span>
-                    </div>
+							" ng-click="search()"><i class="fa fa-search" aria-hidden="true"></i></button>
+						</span>
                 </div>
             </div>
-
-            <div class="row ml-4">
-                <div class="card ml-4" style="width: 20rem;">
-                    <img class="card-img-top" src="..." alt="Card image cap">
-                    <div class="card-body">
-                        <h4 class="card-title">Card title</h4>
-                        <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                        <a href="#" class="btn btn-primary">Go somewhere</a>
-                    </div>
-                </div>
-                <div class="card ml-4" style="width: 20rem;">
-                    <img class="card-img-top" src="..." alt="Card image cap">
-                    <div class="card-body">
-                        <h4 class="card-title">Card title</h4>
-                        <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                        <a href="#" class="btn btn-primary">Go somewhere</a>
-                    </div>
-                </div>
-                <div class="card ml-4" style="width: 20rem;">
-                    <img class="card-img-top" src="..." alt="Card image cap">
-                    <div class="card-body">
-                        <h4 class="card-title">Card title</h4>
-                        <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                        <a href="#" class="btn btn-primary">Go somewhere</a>
+        </div>
+        <div class="row ml-4">
+            <div class="card ml-4" ng-repeat="product in products" style="width: 20rem;">
+                <img class="card-img-top" src="{{product.image}}" alt="Card image cap" style="
+					height: 250px;
+					">
+                <div class="card-body">
+                    <h4 class="card-title">{{product.name}}</h4>
+                    <p class="card-text">{{product.price}}</p>
+                    <div class="row">
+                        <a href="#" class="btn btn-primary col-7">COMPRAR</a>
+                        <div class="input-group col-5">
+                            <input type="number" class="form-control" placeholder="{{product.unitOfMeasurement}}" aria-label="quant" aria-describedby="basic-addon1">
+                        </div>
                     </div>
                 </div>
             </div>
         </div>
     </div>
+</div>
+
 </div>
