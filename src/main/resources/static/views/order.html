@@ -1,0 +1,70 @@
+<div class="container" ng-controller="orderController">
+    <div class="row">
+        <div class="col-sm-6">
+            <div class="item">
+                <span class="fa fa-credit-card-alt"></span>
+                <div>Pendente de Pagamento</div>
+                <p>
+                    Aguardando o pagamento.
+                </p>
+            </div>
+            <div class="item">
+                <span class="fa fa-thumbs-up"></span>
+                <div>Pagamento Aprovado</div>
+                <p>
+                    Seu pagamento foi aprovado, sua compra esta em separação.
+                </p>
+            </div>
+            <div class="item">
+                <span class="fa fa-truck"></span>
+                <div>Saiu para Entrega</div>
+                <p>
+                    Saiu para entrega.
+                </p>
+            </div>
+            <div class="item">
+                <span class="fa fa-handshake-o"></span>
+                <div>Entregue</div>
+                <p>
+                    Mercadoria entregue.
+                </p>
+            </div>
+        </div>
+        <div class="col-sm-6 mt-4">
+            <div class="">
+                <h3 class="">PAGUE COM CARTÃO DE CRÉDITO</h3>
+                <hr class="my-4">
+            </div>
+            <form>
+                <div class="form-row">
+                    <div class="form-group col-md-6">
+                        <label for="inputEmail4">Número do cartão</label>
+                        <input type="text" class="form-control" id="inputEmail4">
+                    </div>
+                    <div class="form-group col-md-6">
+                        <label for="inputPassword4">Nome do titular do cartão</label>
+                        <input type="text" class="form-control" id="inputPassword4" >
+                    </div>
+                </div>
+                <div class="form-row">
+                    <div class="form-group col-md-4">
+                        <label for="inputAddress">Código de segurança </label>
+                        <input type="text" class="form-control" id="inputAddress">
+                    </div>
+                </div>
+                <div class="form-row">
+                    <div class="form-group col-md-4">
+                        <label for="inputCity">Validade do cartão</label>
+                        <input type="text" class="form-control" id="inputZip" placeholder="Ano">
+                    </div>
+                    <div class="form-group col-md-4">
+                        <label for="inputZip"></label>
+                        <input type="text" class="form-control mt-2" id="inputZip" placeholder="Mês">
+                    </div>
+                </div>
+                <div class="text-right">
+                    <button type="submit" class="btn btn-primary">CONFIRMAR</button></div>
+            </form>
+        </div>
+    </div>
+</div>
