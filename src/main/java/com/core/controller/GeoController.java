@@ -1,27 +1,29 @@
 package com.core.controller;
 
-import com.core.CoreApplication;
 import com.core.DTO.ShopDTO;
-import org.springframework.core.ParameterizedTypeReference;
-import org.springframework.http.HttpMethod;
-import org.springframework.http.ResponseEntity;
-import org.springframework.web.client.RestTemplate;
+import com.core.service.Geo;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.RestController;
 
 import java.util.List;
 
+@RestController
 public class GeoController {
 
-    public List<ShopDTO> getShopList (String gridCode){
+    @Autowired
+    Geo geo;
+    
+    @GetMapping(value = "/shop/{gridCode}")
+    public List<ShopDTO> getShopList (@RequestParam("gridCode") String gridCode){
+        return geo.getContainShopList(gridCode);
+    }
 
-        RestTemplate restTemplate = new RestTemplate();
-        ResponseEntity<List<ShopDTO>> responseEntity =
-                restTemplate.exchange("https://api-user.herokuapp.com/product",
-                        HttpMethod.GET, null, new ParameterizedTypeReference<List<ShopDTO>>() {
-                        });
-        List<ShopDTO> shopDTOList = responseEntity.getBody();
-        CoreApplication.ShopGrid.put(gridCode, shopDTOList);
+    
 
-        return shopDTOList;
+    public boolean teste(String key){
+        return Geo.shopGrid.containsKey(key);
     }
 
 }
