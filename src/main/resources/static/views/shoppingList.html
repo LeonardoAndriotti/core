@@ -177,8 +177,8 @@
                             </div>
                         </div>
                         <div class="form-group" ng-show="once">
-                            <label for="inputAddress">Informe a data que deseja ser informado</label>
-                            <input type="datetime-local" class="form-control" id="inputAddress"
+                            <label for="inputAddress1">Informe a data que deseja ser informado</label>
+                            <input type="datetime-local" class="form-control" id="inputAddress1"
                                    placeholder="Informe a data e hora deseja ser informado">
                         </div>
                         <div class="row container" ng-show="week">
@@ -196,8 +196,8 @@
                             </div>
                         </div>
                         <div class="form-group" ng-show="month">
-                            <label for="inputAddress">Informe do mês que deseja ser informado</label>
-                            <input type="datetime-local" class="form-control" id="inputAddress"
+                            <label for="inputAddress2">Informe do mês que deseja ser informado</label>
+                            <input type="datetime-local" class="form-control" id="inputAddress2"
                                    placeholder="Informe do mês que deseja ser informado">
                         </div>
 
@@ -214,8 +214,8 @@
                     </div>
                     <div class="row container">
                         <div class="form-group input-width">
-                            <label for="inputAddress2">Produto</label>
-                            <input type="text" class="form-control" id="inputAddress2"
+                            <label for="inputAddress3">Produto</label>
+                            <input type="text" class="form-control" id="inputAddress3"
                                    placeholder="Informe o produto que deseja">
                         </div>
                         <div class="buttom-modal-add  ml-1">
@@ -281,8 +281,8 @@
                 </table>
             </div>
             <div class="modal-footer">
-                <button type="submit" class="btn btn-primary">Sign in</button>
-                <button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
+                <button type="submit" ng-click="vm.newShoppingList()" class="btn btn-primary">Cadastrar</button>
+                <button type="button" class="btn btn-danger" data-dismiss="modal">Fechar</button>
             </div>
         </div>
     </div>

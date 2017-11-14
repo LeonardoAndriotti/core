@@ -16,7 +16,7 @@ youBuyApp.config(function ($routeProvider, $locationProvider) {
         })
         .when("/shoppingList", {
             templateUrl: 'views/shoppingList.html',
-            controller: 'shoppingListController'
+            controller: 'shoppingListController as vm'
         })
         .otherwise({
             rediretTo: '/'
