@@ -1,7 +1,6 @@
 package com.core.service;
 
 import com.core.DTO.ShopDTO;
-import com.core.controller.GeoController;
 import org.springframework.core.ParameterizedTypeReference;
 import org.springframework.http.HttpMethod;
 import org.springframework.http.ResponseEntity;
@@ -15,14 +14,14 @@ public class Geo {
 
     public static HashMap<String, List<ShopDTO>> shopGrid;
 
-    public List<ShopDTO> getContainShopList(String key){
+    public static List<ShopDTO> getContainShopList(String key){
         if (!shopGrid.containsKey(key)){
             shopGrid.put(key, getShopDTOS(key));
         }
         return shopGrid.get(key);
     }
 
-    private List<ShopDTO> getShopDTOS(@RequestParam("gridCode") String gridCode) {
+    private static List<ShopDTO> getShopDTOS(@RequestParam("gridCode") String gridCode) {
         RestTemplate restTemplate = new RestTemplate();
         ResponseEntity<List<ShopDTO>> responseEntity =
                 restTemplate.exchange("https://api-user.herokuapp.com/product",

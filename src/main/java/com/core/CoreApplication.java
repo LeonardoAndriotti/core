@@ -9,12 +9,9 @@ import java.util.HashMap;
 @SpringBootApplication
 public class CoreApplication {
 
+    public static void main(String[] args) {
+        Geo.shopGrid = new HashMap<>();
 
-
-	public static void main(String[] args) {
-
-		Geo.shopGrid = new HashMap<>();
-
-		SpringApplication.run(CoreApplication.class, args);
-	}
+        SpringApplication.run(CoreApplication.class, args);
+    }
 }
