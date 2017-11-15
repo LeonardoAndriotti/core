@@ -1,0 +1,27 @@
+<div class="container" ng-controller="listOrderController">
+    <h2 class="mt-1">Pedidos</h2>
+    <table class="table">
+        <thead>
+        <tr>
+            <th>Valor</th>
+            <th>Data</th>
+            <th>Status</th>
+            <th>Ver Detalhes</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr style="
+				text-align: -webkit-center;
+				" ng-repeat="order in orders">
+            <td>R$ {{order.amount}}</td>
+            <td>{{order.datacriacao}}</td>
+            <td>{{order.status}}</td>
+            <td>
+					<span>
+						<a ng-href="/timeline/order/{{order.id}}">A companhe seu pedido</a>
+					</span>
+            </td>
+        </tr>
+        </tbody>
+    </table>
+</div>

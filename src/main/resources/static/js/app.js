@@ -6,9 +6,12 @@ youBuyApp.config(function ($routeProvider, $locationProvider) {
             templateUrl: 'views/search.html',
             controller: 'searchController'
         })
-        .when("/timeline/order", {
+        .when("/timeline/order/:id", {
             templateUrl: 'views/order.html',
             controller: 'orderController'
+        }).when("/list/order", {
+            templateUrl: 'views/list-order.html',
+            controller: 'listOrderController'
         })
         .when("/promocao", {
             templateUrl: 'views/promocao.html',

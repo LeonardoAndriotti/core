@@ -26,3 +26,21 @@
 .item p {
     margin-top: 15px;
 }
+
+.aprovad{
+    border-color: #28a745!important;
+}
+
+.aprovad-item{
+    background: #28a745!important;
+}
+
+.table thead th {
+    text-align: center;
+}
+.table span {
+    background-color: #343a40!important;
+    color: #fff;
+    border-radius: 10px;
+    padding: 9px;
+}
