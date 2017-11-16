@@ -21,21 +21,6 @@ youBuyApp.config(function ($routeProvider, $locationProvider) {
             templateUrl: 'views/product-registration.html',
             controller: 'productRegistrationController as vm'
         })
-        .otherwise({
-            rediretTo: '/'
-        });
-        .when("/search", {
-            templateUrl: 'views/search.html',
-            controller: 'searchController'
-        })
-        .when("/promocao", {
-            templateUrl: 'views/promocao.html',
-            controller: 'promocaoController'
-        })
-        .when("/product-registration", {
-            templateUrl: 'views/product-registration.html',
-            controller: 'productRegistrationController as vm'
-        })
         .when("/shoppingList", {
             templateUrl: 'views/shoppingList.html',
             controller: 'shoppingListController'
