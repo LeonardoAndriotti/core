@@ -16,10 +16,10 @@ import java.util.List;
 @RestController
 public class OrderController {
 
-    @RequestMapping(value = "/order/user/{id}", method = RequestMethod.GET)
-    public List<Order> getOrdersByCart(@PathVariable Long id) {
+    @RequestMapping(value = "/order/user/{idUser}", method = RequestMethod.GET)
+    public List<Order> getOrdersByCart(@PathVariable BigDecimal idUser) {
 
-        String url = "http://localhost:8091/orders/user/" + id;
+        String url = "http://localhost:8980/orders/user/" + idUser;
         RestTemplate restTemplate = new RestTemplate();
         ResponseEntity<List<Order>> response =
                 restTemplate.exchange(url,
@@ -31,7 +31,7 @@ public class OrderController {
     @RequestMapping(value = "/order/{id}", method = RequestMethod.GET)
     public Order getOrdersById(@PathVariable Long id) {
 
-        String url = "http://localhost:8091/orders/" + id;
+        String url = "http://localhost:8980/orders/" + id;
         RestTemplate restTemplate = new RestTemplate();
         ResponseEntity<Order> response =
                 restTemplate.exchange(url,
@@ -43,7 +43,7 @@ public class OrderController {
     @RequestMapping(value = "/order/update/status/{id}/{status}", method = RequestMethod.PUT)
     public void getUpdateStatus(@PathVariable Long id, @PathVariable String status) {
 
-        String url = "http://localhost:8091/orders/" + id + "/" + status;
+        String url = "http://localhost:8980/orders/" + id + "/" + status;
         RestTemplate restTemplate = new RestTemplate();
         ResponseEntity<String> response =
                 restTemplate.exchange(url,
@@ -54,7 +54,13 @@ public class OrderController {
     @RequestMapping(value = "/update/status/{id}/{status}", method = RequestMethod.GET)
     public void getUpdate(@PathVariable BigDecimal id, @PathVariable String status) {
         UpdateOrderStatus updateOrderStatus = new UpdateOrderStatus();
-        updateOrderStatus.updateStatusOrder(translateStatus(status), id);
+        Thread thread = new Thread("New Thread") {
+            public void run(){
+                updateOrderStatus.updateStatusOrder(translateStatus(status), id);
+            }
+        };
+        thread.start();
+
     }
 
     private OrderStatus translateStatus(String status) {

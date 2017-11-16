@@ -2,7 +2,7 @@ var youBuyApp = angular.module("youBuyApp", ['ngRoute']);
 
 youBuyApp.config(function ($routeProvider, $locationProvider) {
     $routeProvider
-        .when("/search", {
+        .when("/", {
             templateUrl: 'views/search.html',
             controller: 'searchController'
         })

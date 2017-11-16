@@ -19,19 +19,19 @@ public class UpdateOrderStatus {
                         });
 
         if (response.getBody().getStatus().equals("ENTREGUE")) {
-           // System.out.println(response.getBody().getStatus());
+           System.out.println("Finalizando Pedido " + response.getBody().getStatus());
             updateOrderApi(id, response.getBody().getStatus());
             return response.getBody();
         }
 
-        //System.out.println(response.getBody().getStatus());
+         System.out.println("Atualizando estados de pedido " + response.getBody().getStatus());
         updateOrderApi(BigDecimal.ONE, response.getBody().getStatus());
 
         return updateStatusOrder(response.getBody(),id);
     }
 
     private void updateOrderApi(BigDecimal idOrder, String orderStatus) {
-        String url = "http://localhost:8091/orders/" + idOrder + "/" + orderStatus;
+        String url = "http://localhost:8980/orders/" + idOrder + "/" + orderStatus;
         RestTemplate restTemplate = new RestTemplate();
         ResponseEntity<String> response =
                 restTemplate.exchange(url,
