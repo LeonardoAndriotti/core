@@ -1,4 +1,4 @@
-var youBuyApp = angular.module("youBuyApp", ['ngRoute']);
+var youBuyApp = angular.module("youBuyApp", ['ngRoute', 'ngAnimate', 'ngSanitize', 'ui.bootstrap']);
 
 youBuyApp.config(function ($routeProvider, $locationProvider) {
     $routeProvider
