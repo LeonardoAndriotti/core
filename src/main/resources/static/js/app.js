@@ -29,5 +29,5 @@ youBuyApp.config(function ($routeProvider, $locationProvider) {
             rediretTo: '/'
         });
 
-    $locationProvider.hashPrefix('').html5Mode(true);
+    $locationProvider.hashPrefix('').html5Mode(false);
 });
