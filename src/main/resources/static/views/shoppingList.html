@@ -130,6 +130,9 @@
                 <h4 class="modal-title">Nova lista de compra</h4>
             </div>
             <div class="modal-body">
+                <div uib-alert ng-repeat="alert in vm.alerts" ng-class="'alert-' + (alert.type || 'warning')"
+                     close="vm.closeAlert($index)" dismiss-on-timeout="{{alert.timeout}}">{{alert.msg}}
+                </div>
                 <form>
                     <div class="jumbotron">
                         <div class="">
@@ -138,20 +141,20 @@
                         </div>
                         <div class="form-row">
                             <div class="form-group col-md-6">
-                                <label for="inputEmail4">Nome Lista</label>
-                                <input type="text" class="form-control" id="inputEmail4"
-                                       placeholder="Insira um nome para sua lista de compras">
+                                <label for="name">Nome Lista</label>
+                                <input ng-model="vm.shoppingList.name" type="text" class="form-control" id="name"
+                                       placeholder="Insira um nome para sua lista de compras" required>
                             </div>
                             <div class="form-group col-md-6">
-                                <label for="inputPassword4">Descrisão</label>
-                                <input type="text" class="form-control" id="inputPassword4"
+                                <label for="description">Descrisão</label>
+                                <input ng-model="vm.shoppingList.description" type="text" class="form-control" id="description"
                                        placeholder="Informe uma breve descrisão">
                             </div>
                         </div>
                         <div class="form-group">
                             <div class="form-check">
-                                <label class="form-check-label">
-                                    <input class="form-check-input" type="checkbox" ng-model="notification">
+                                <label for="notification" class="form-check-label">
+                                    <input ng-model="vm.shoppingList.notification" class="form-check-input" type="checkbox" id="notification">
                                     Ativar notificações ? <i class="fa fa-bell-o" aria-hidden="true"
                                                              style="color: #000!important;"></i>
                                 </label>
@@ -160,31 +163,31 @@
                         <div class="form-group" ng-show="notification">
                             <div class="row container">
                                 <div class="form-check">
-                                    <label class="form-check-label mr-2">
-                                        <input class="form-check-input" type="checkbox" ng-model="week"> Semanal
+                                    <label for="weekly" class="form-check-label mr-2">
+                                        <input ng-model="vm.shoppingList.weekly" class="form-check-input" type="checkbox" id="weekly"> Semanal
                                     </label>
                                 </div>
                                 <div class="form-check">
-                                    <label class="form-check-label mr-2">
-                                        <input class="form-check-input" type="checkbox" ng-model="month"> Mensal
+                                    <label for="monthly" class="form-check-label mr-2">
+                                        <input ng-model="vm.shoppingList.monthly" class="form-check-input" type="checkbox" id="monthly"> Mensal
                                     </label>
                                 </div>
                                 <div class="form-check">
-                                    <label class="form-check-label mr-2">
-                                        <input class="form-check-input" type="checkbox" ng-model="once"> Uma única vez
+                                    <label for="onlyOnce" class="form-check-label mr-2">
+                                        <input ng-model="vm.shoppingList.onlyOnce" class="form-check-input" type="checkbox" id="onlyOnce"> Uma única vez
                                     </label>
                                 </div>
                             </div>
                         </div>
-                        <div class="form-group" ng-show="once">
-                            <label for="inputAddress1">Informe a data que deseja ser informado</label>
-                            <input type="datetime-local" class="form-control" id="inputAddress1"
+                        <div class="form-group" ng-show="vm.shoppingList.onlyOnce">
+                            <label for="date">Informe a data que deseja ser informado</label>
+                            <input ng-model="vm.shoppingList.date" type="datetime-local" class="form-control" id="date"
                                    placeholder="Informe a data e hora deseja ser informado">
                         </div>
-                        <div class="row container" ng-show="week">
+                        <div class="row container" ng-show="vm.shoppingList.weekly">
                             <div class="form-group mr-2">
-                                <label for="exampleSelect1">Informe dia da semana e a </label>
-                                <select class="form-control" id="exampleSelect1">
+                                <label for="dayWeek">Informe dia da semana e a </label>
+                                <select ng-model="vm.shoppingList.dayWeek" class="form-control" id="dayWeek">
                                     <option>Domingo</option>
                                     <option>Segunda-feira</option>
                                     <option>Terça-feira</option>
@@ -195,15 +198,15 @@
                                 </select>
                             </div>
                         </div>
-                        <div class="form-group" ng-show="month">
-                            <label for="inputAddress2">Informe do mês que deseja ser informado</label>
-                            <input type="datetime-local" class="form-control" id="inputAddress2"
+                        <div class="form-group" ng-show="vm.shoppingList.monthly">
+                            <label for="dayMonth">Informe do mês que deseja ser informado</label>
+                            <input ng-model="vm.shoppingList.dayMonth" type="datetime-local" class="form-control" id="dayMonth"
                                    placeholder="Informe do mês que deseja ser informado">
                         </div>
 
-                        <div class="form-group ">
-                            <label for="example-color-input" class="">Selecione uma Cor</label>
-                            <input class="form-control" type="color" value="#563d7c" id="example-color-input">
+                        <div class="form-group">
+                            <label for="color" class="">Selecione uma Cor</label>
+                            <input ng-model="vm.shoppingList.color" class="form-control" type="color" value="#563d7c" id="color">
                             <small>obs. utilize a cor de templete para melhor vizualização em tela.</small>
                         </div>
                     </div>
@@ -214,8 +217,8 @@
                     </div>
                     <div class="row container">
                         <div class="form-group input-width">
-                            <label for="inputAddress3">Produto</label>
-                            <input type="text" class="form-control" id="inputAddress3"
+                            <label for="idProduct">Produto</label>
+                            <input ng-model="vm.shoppingList.idProduct" type="text" class="form-control" id="idProduct"
                                    placeholder="Informe o produto que deseja">
                         </div>
                         <div class="buttom-modal-add  ml-1">
