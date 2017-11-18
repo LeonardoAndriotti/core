@@ -11,36 +11,48 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.client.RestClientException;
 import org.springframework.web.client.RestTemplate;
 
 import com.core.DTO.CarrerDTO;
 import com.core.DTO.ProductDTO;
+import com.core.DTO.RelCarrerProductDTO;
 
 @RestController
 public class CarrerController {
-	
-//	@RequestMapping(value ="/carrer", method= RequestMethod.GET)
-//	public @ResponseBody List<ProductDTO> TodosProdutos() throws RestClientException, IOException{
-//		return getAllProduct(1);
+//	@RequestMapping(value ="/carrer/{iduser}", method= RequestMethod.GET)
+//	public List<RelCarrerProductDTO> getAllCarrerProduct(@PathVariable BigDecimal iduser) throws RestClientException, IOException {
+//		
+//		List<CarrerDTO> carrer = getCarrer(iduser);
+//		List<ProductDTO> products = new ArrayList<ProductDTO>();
+//		List<RelCarrerProductDTO> relCarrerProduct = new ArrayList<RelCarrerProductDTO>();
+//		for (int i = 0; i < carrer.size(); i++) {
+//			System.out.println(carrer.get(i).getIdproduto());
+//        }
+//		for (int i = 0; i < carrer.size(); i++) {
+//			products.add(getProduct(carrer.get(i).getIdproduto()));
+//			System.out.println(products.get(i).getName());
+//			System.out.println(products.get(i).getPrice());
+//		}
+//		
+//		return null;
 //	}
-	
-	@RequestMapping(value ="/carrer/{iduser}", method= RequestMethod.GET)
-	public List<ProductDTO> getAllProduct(@PathVariable BigDecimal iduser) throws RestClientException, IOException{
-		List<CarrerDTO> carrer = getCarrer(iduser);
-		List<ProductDTO> products = new ArrayList<ProductDTO>();
-		for (int i = 0; i < carrer.size(); i++) {
-			System.out.println(carrer.get(i).getIdproduto());
-        }
-		for (int i = 0; i < carrer.size(); i++) {
-			products.add(getProduct(carrer.get(i).getIdproduto()));
-			System.out.println(products.get(i).getName());
-			System.out.println(products.get(i).getPrice());
-		}
-		return products;
-	}
+//	
+//	@RequestMapping(value ="/carrer/{iduser}", method= RequestMethod.GET)
+//	public List<ProductDTO> getAllProduct(@PathVariable BigDecimal iduser) throws RestClientException, IOException{
+//		List<CarrerDTO> carrer = getCarrer(iduser);
+//		List<ProductDTO> products = new ArrayList<ProductDTO>();
+//		for (int i = 0; i < carrer.size(); i++) {
+//			System.out.println(carrer.get(i).getIdproduto());
+//        }
+//		for (int i = 0; i < carrer.size(); i++) {
+//			products.add(getProduct(carrer.get(i).getIdproduto()));
+//			System.out.println(products.get(i).getName());
+//			System.out.println(products.get(i).getPrice());
+//		}
+//		return products;
+//	}
 	
 	 public List<CarrerDTO> getCarrer(BigDecimal iduser) throws RestClientException, IOException {
 		 RestTemplate restTemplate = new RestTemplate();
