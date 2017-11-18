@@ -8,7 +8,7 @@
                         <span></span>
                     </div>
                     <div class="col-5">
-                        <span class="col-12">Produto</span>
+                        <span>Produto</span>
                     </div>
                     <div class="col-2">
                         <span>Valor</span>
@@ -29,15 +29,15 @@
                     </div>
                     <div class="produto col-5">
                         <div class="row col-12">
-                            <span class="col-12 font-cinza-item">Pizza</span>
+                            <span class="col-12 font-cinza-item">{{carrer[0].name}}</span>
                             <span class="merc col-12">Cidade Cancao</span>
                         </div>
                     </div>
                     <div class="valor col-2 font-cinza-item">
-                        <span>R$ {{value[0] | currency: ''}}</span>
+                        <span>R$ {{carrer[0].price | currency: ''}}</span>
                     </div>
                     <div class="quant col-2 font-cinza-item">
-                        <input class="form-control" type="number" min="1" placeholder="unit" value="1"> 
+                        <input class="form-control" type="number" min="1" placeholder="unit" value="1" ng-model="carrer[0].quant"> 
                     </div>
                     <div class="quant col-1 font-cinza-item center">
                         <i class="fa fa-trash-o font-red-1" aria-hidden="true"></i>
@@ -52,15 +52,15 @@
                     </div>
                     <div class="produto col-5">
                         <div class="row col-12">
-                            <span class="col-12 font-cinza-item">Pizza</span>
+                            <span class="col-12 font-cinza-item">{{carrer[1].name}}</span>
                             <span class="merc col-12">Cidade Cancao</span>
                         </div>
                     </div>
                     <div class="valor col-2 font-cinza-item">
-                        <span>R$ {{value[1] | currency: ''}}</span>
+                        <span>R$ {{carrer[1].price | currency: ''}}</span>
                     </div>
                     <div class="quant col-2 font-cinza-item">
-                        <input class="form-control" type="number" min="1" placeholder="unit" value="1"> 
+                        <input class="form-control" type="number" min="1" placeholder="unit" value="1" ng-model="carrer[1].quant"> 
                     </div>
                     <div class="quant col-1 font-cinza-item center">
                         <i class="fa fa-trash-o font-red-1" aria-hidden="true"></i>
@@ -75,15 +75,15 @@
                     </div>
                     <div class="produto col-5">
                         <div class="row col-12">
-                            <span class="col-12 font-cinza-item">Pizza</span>
+                            <span class="col-12 font-cinza-item">{{carrer[2].name}}</span>
                             <span class="merc col-12">Cidade Cancao</span>
                         </div>
                     </div>
                     <div class="valor col-2 font-cinza-item">
-                        <span>R$ {{value[2] | currency: ''}}</span>
+                        <span>R$ {{carrer[2].price | currency: ''}}</span>
                     </div>
                     <div class="quant col-2 font-cinza-item">
-                        <input class="form-control" type="number" min="1" placeholder="unit" value="1"> 
+                        <input class="form-control" type="number" min="1" placeholder="unit" value="1" ng-model="quant"> 
                     </div>
                     <div class="quant col-1 font-cinza-item center">
                         <i class="fa fa-trash-o font-red-1" aria-hidden="true"></i>
