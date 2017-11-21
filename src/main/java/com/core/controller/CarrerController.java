@@ -28,7 +28,7 @@ public class CarrerController {
 		List<CarrerDTO> carrer = getCarrer(iduser);
 		List<ProductDTO> products = getAllProduct(iduser);
 		List<RelCarrerProductDTO> relCarrerProductList = new ArrayList<RelCarrerProductDTO>();
-		
+		RelCarrerProductDTO aux = new RelCarrerProductDTO();
 		for (int i = 0; i < carrer.size(); i++) {
 			RelCarrerProductDTO relCarrerProduct = new RelCarrerProductDTO();
 			relCarrerProduct.setIduser(carrer.get(i).getIduser());
@@ -40,10 +40,17 @@ public class CarrerController {
 			relCarrerProduct.setShopping(products.get(i).getShopping());
 			relCarrerProduct.setTotal(products.get(i).getPrice().multiply(relCarrerProduct.getQuant()));
 			
+			if (i != 0) {
+				relCarrerProduct.setTotal(aux.getTotal().add(products.get(i).getPrice().multiply(relCarrerProduct.getQuant())));
+				aux.setTotal(relCarrerProduct.getTotal());
+			} else {
+				aux.setTotal(relCarrerProduct.getTotal());
+			}
+			
 			relCarrerProductList.add(relCarrerProduct);
 		}
-		
 		for (int i = 0; i < relCarrerProductList.size(); i++) {
+			
 			System.out.println("==============");
 			System.out.println("IDUSER: "+ relCarrerProductList.get(i).getIduser());
 			System.out.println("IDPRODUTO: "+ relCarrerProductList.get(i).getIdproduto());

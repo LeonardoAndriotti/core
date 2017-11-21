@@ -1,7 +1,7 @@
 youBuyApp.controller("carrerController", function($scope, $http){
-	
+		
     carregarCarrer = function(){
-        $http({method:'GET', url: 'http://localhost:8900/carrer/1'})
+        $http({method:'GET', url: 'http://localhost:8900/carrer/2'})
         .then(function(response){
             $scope.carrer = response.data;
         }, function(response){
@@ -11,12 +11,6 @@ youBuyApp.controller("carrerController", function($scope, $http){
         });
         
     };
-//    $scope.somarValores = function(){
-//    	for (var i = 0; i < carrer.length; i++) {
-//    		$scope.total += carrer[i];
-//		}
-//    }
-    
 
     carregarCarrer();
    
