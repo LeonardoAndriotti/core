@@ -16,7 +16,7 @@ public class CarrerDTO {
 //	@JsonProperty("idproduto")
 	private BigDecimal idproduto;
 //	@JsonProperty("preco")
-	private BigDecimal preco;
+	private BigDecimal total;
 
 	public BigDecimal getId() {
 		return id;
@@ -50,12 +50,12 @@ public class CarrerDTO {
 		this.idproduto = idproduto;
 	}
 
-	public BigDecimal getPreco() {
-		return preco;
+	public BigDecimal getTotal() {
+		return total;
 	}
 
-	public void setPreco(BigDecimal preco) {
-		this.preco = preco;
+	public void setTotal(BigDecimal total) {
+		this.total = total;
 	}
 
 }

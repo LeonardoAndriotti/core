@@ -9,12 +9,11 @@ public class RelCarrerProductDTO {
 
 // Atributos da Classe
 	private BigDecimal id;
-	private BigDecimal total;
 // Atributos do Carrinho
 	private BigDecimal quant;
 	private BigDecimal iduser;
 	private BigDecimal idproduto;
-	private BigDecimal preco;
+	private BigDecimal total;
 //	Atributos do Produto
 	private String name;
     private BigDecimal price;
@@ -51,14 +50,6 @@ public class RelCarrerProductDTO {
 
 	public void setIdproduto(BigDecimal idproduto) {
 		this.idproduto = idproduto;
-	}
-
-	public BigDecimal getPreco() {
-		return preco;
-	}
-
-	public void setPreco(BigDecimal preco) {
-		this.preco = preco;
 	}
 
 	public BigDecimal getTotal() {

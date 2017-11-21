@@ -21,71 +21,25 @@
                     </div>
                 </div>
             </li>
-            <li class="item col-12 no-padding">
+            <li class="item col-12 no-padding" ng-repeat="carrinho in carrer">
                 <div class="row col-12 no-padding">
                     <div class="icone col-2">
                         <hr class="star-primary">
-                        <img src="http://icons.iconarchive.com/icons/sonya/swarm/256/Pizza-icon.png">
+                        <img src="{{carrinho.image}}">
                     </div>
                     <div class="produto col-5">
                         <div class="row col-12">
-                            <span class="col-12 font-cinza-item">{{carrer[0].name}}</span>
-                            <span class="merc col-12"></span>
+                            <span class="col-12 font-cinza-item">{{carrinho.name}}</span>
+                            <span class="merc col-12">{{carrinho.shopping}}</span>
                         </div>
                     </div>
                     <div class="valor col-2 font-cinza-item">
-                        <span>R$ {{carrer[0].price | currency: ''}}</span>
+                        <span>R$ {{carrinho.price | currency: ''}}</span>
                     </div>
                     <div class="quant col-2 font-cinza-item">
-                        <input class="form-control" type="number" min="1" placeholder="unit" value="1">
+                        <input class="form-control" type="number" min="1" placeholder="unit" value="{{carrinho.quant}}">
                     </div>
-                    <div class="quant col-1 font-cinza-item center">
-                        <i class="fa fa-trash-o font-red-1" aria-hidden="true"></i>
-                    </div>
-                </div> 
-            </li>
-            <li class="item col-12 no-padding">
-                <div class="row col-12 no-padding">
-                    <div class="icone col-2">
-                        <hr class="star-primary">
-                        <img src="http://icons.iconarchive.com/icons/sonya/swarm/256/Pizza-icon.png">
-                    </div>
-                    <div class="produto col-5">
-                        <div class="row col-12">
-                            <span class="col-12 font-cinza-item">{{carrer[1].name}}</span>
-                            <span class="merc col-12">Cidade Cancao</span>
-                        </div>
-                    </div>
-                    <div class="valor col-2 font-cinza-item">
-                        <span>R$ {{carrer[1].price | currency: ''}}</span>
-                    </div>
-                    <div class="quant col-2 font-cinza-item">
-                        <input class="form-control" type="number" min="1" placeholder="unit" value="1"> 
-                    </div>
-                    <div class="quant col-1 font-cinza-item center">
-                        <i class="fa fa-trash-o font-red-1" aria-hidden="true"></i>
-                    </div>
-                </div> 
-            </li>
-            <li class="item col-12 no-padding">
-                <div class="row col-12 no-padding">
-                    <div class="icone col-2">
-                        <hr class="star-primary">
-                        <img src="http://icons.iconarchive.com/icons/sonya/swarm/256/Pizza-icon.png">
-                    </div>
-                    <div class="produto col-5">
-                        <div class="row col-12">
-                            <span class="col-12 font-cinza-item">{{carrer[2].name}}</span>
-                            <span class="merc col-12">Cidade Cancao</span>
-                        </div>
-                    </div>
-                    <div class="valor col-2 font-cinza-item">
-                        <span>R$ {{carrer[2].price | currency: ''}}</span>
-                    </div>
-                    <div class="quant col-2 font-cinza-item">
-                        <input class="form-control" type="number" min="1" placeholder="unit" value="1"> 
-                    </div>
-                    <div class="quant col-1 font-cinza-item center">
+                    <div class="col-1 font-cinza-item center">
                         <i class="fa fa-trash-o font-red-1" aria-hidden="true"></i>
                     </div>
                 </div> 
@@ -96,7 +50,7 @@
         <hr class="star-primary">
         <div class="row col-12">
             <span class="titulo col-10 no-padding">Subtotal: </span>
-            <span class="valor col-2 no-padding">R$ {{getTotal() | currency: ''}}</span>
+            <span class="valor col-2 no-padding">R$ {{}}</span>
         </div>
         <div class="comprar col-12">
         	<a href="/search" class="btn btn-primary btn-lg">Voltar a comprar</a>

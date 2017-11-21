@@ -21,38 +21,53 @@ import com.core.DTO.RelCarrerProductDTO;
 
 @RestController
 public class CarrerController {
-//	@RequestMapping(value ="/carrer/{iduser}", method= RequestMethod.GET)
-//	public List<RelCarrerProductDTO> getAllCarrerProduct(@PathVariable BigDecimal iduser) throws RestClientException, IOException {
-//		
-//		List<CarrerDTO> carrer = getCarrer(iduser);
-//		List<ProductDTO> products = new ArrayList<ProductDTO>();
-//		List<RelCarrerProductDTO> relCarrerProduct = new ArrayList<RelCarrerProductDTO>();
-//		for (int i = 0; i < carrer.size(); i++) {
-//			System.out.println(carrer.get(i).getIdproduto());
-//        }
-//		for (int i = 0; i < carrer.size(); i++) {
-//			products.add(getProduct(carrer.get(i).getIdproduto()));
-//			System.out.println(products.get(i).getName());
-//			System.out.println(products.get(i).getPrice());
-//		}
-//		
-//		return null;
-//	}
-//	
-//	@RequestMapping(value ="/carrer/{iduser}", method= RequestMethod.GET)
-//	public List<ProductDTO> getAllProduct(@PathVariable BigDecimal iduser) throws RestClientException, IOException{
-//		List<CarrerDTO> carrer = getCarrer(iduser);
-//		List<ProductDTO> products = new ArrayList<ProductDTO>();
-//		for (int i = 0; i < carrer.size(); i++) {
-//			System.out.println(carrer.get(i).getIdproduto());
-//        }
-//		for (int i = 0; i < carrer.size(); i++) {
-//			products.add(getProduct(carrer.get(i).getIdproduto()));
-//			System.out.println(products.get(i).getName());
-//			System.out.println(products.get(i).getPrice());
-//		}
-//		return products;
-//	}
+	
+	@RequestMapping(value ="/carrer/{iduser}", method= RequestMethod.GET)
+	public List<RelCarrerProductDTO> getAllCarrerProduct(@PathVariable BigDecimal iduser) throws RestClientException, IOException {
+		
+		List<CarrerDTO> carrer = getCarrer(iduser);
+		List<ProductDTO> products = getAllProduct(iduser);
+		List<RelCarrerProductDTO> relCarrerProductList = new ArrayList<RelCarrerProductDTO>();
+		
+		for (int i = 0; i < carrer.size(); i++) {
+			RelCarrerProductDTO relCarrerProduct = new RelCarrerProductDTO();
+			relCarrerProduct.setIduser(carrer.get(i).getIduser());
+			relCarrerProduct.setIdproduto(products.get(i).getId());
+			relCarrerProduct.setName(products.get(i).getName());
+			relCarrerProduct.setImage(products.get(i).getImage());
+			relCarrerProduct.setPrice(products.get(i).getPrice());
+			relCarrerProduct.setQuant(carrer.get(i).getQuant());
+			relCarrerProduct.setShopping(products.get(i).getShopping());
+			relCarrerProduct.setTotal(products.get(i).getPrice().multiply(relCarrerProduct.getQuant()));
+			
+			relCarrerProductList.add(relCarrerProduct);
+		}
+		
+		for (int i = 0; i < relCarrerProductList.size(); i++) {
+			System.out.println("==============");
+			System.out.println("IDUSER: "+ relCarrerProductList.get(i).getIduser());
+			System.out.println("IDPRODUTO: "+ relCarrerProductList.get(i).getIdproduto());
+			System.out.println("NAME: "+ relCarrerProductList.get(i).getName());
+			System.out.println("IMAGE: "+ relCarrerProductList.get(i).getImage());
+			System.out.println("PRICE: "+ relCarrerProductList.get(i).getPrice());
+			System.out.println("QUANT: "+ relCarrerProductList.get(i).getQuant());
+			System.out.println("SHOPPING: "+ relCarrerProductList.get(i).getShopping());
+			System.out.println("TOTAL: "+ relCarrerProductList.get(i).getTotal());
+		}
+		return relCarrerProductList;
+	}
+	
+	public List<ProductDTO> getAllProduct(@PathVariable BigDecimal iduser) throws RestClientException, IOException{
+		List<CarrerDTO> carrer = getCarrer(iduser);
+		List<ProductDTO> products = new ArrayList<ProductDTO>();
+
+		for (int i = 0; i < carrer.size(); i++) {
+			products.add(getProduct(carrer.get(i).getIdproduto()));
+			System.out.println(products.get(i).getName());
+			System.out.println(products.get(i).getPrice());
+		}
+		return products;
+	}
 	
 	 public List<CarrerDTO> getCarrer(BigDecimal iduser) throws RestClientException, IOException {
 		 RestTemplate restTemplate = new RestTemplate();
@@ -76,7 +91,8 @@ public class CarrerController {
 
 
 //	    public static void main(String[] args) throws IOException {
-//	        new CarrerController().getAllProduct(1);
+//	    	BigDecimal one = new BigDecimal(2);
+//	        new CarrerController().getAllCarrerProduct(one);
 //	    }
 
 }
