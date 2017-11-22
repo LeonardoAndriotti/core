@@ -1,0 +1,33 @@
+.item{
+    font-family: Roboto, "Helvetica Neue Light", "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif;
+    font-size: 14px;
+    font-weight: 400;
+}
+.item .main:hover{
+    background-color: rgb(219, 219, 219);
+    color: rgb(25, 118, 210);
+    text-shadow: rgb(255, 255, 255) 0px 0px 5px;
+}
+.item i{
+    color: #343a40!important;
+    position: absolute;
+    right: 20px;
+    margin-top: 1%;
+}
+.menu-lateral .item:first-child{
+    margin-top: 7%;
+}
+.menu-lateral{
+    position: absolute!important;
+    left: 0px;
+    background-color: rgb(250, 250, 250);
+    box-shadow: rgba(0, 0, 0, 0.1) 6px 0px 6px;
+    height: 100%;
+    bottom: 0px !important;
+}
+.corpo{
+    left:210px!important;
+}
+.card-body .card-text{
+    font-size: 35pt;
+}
