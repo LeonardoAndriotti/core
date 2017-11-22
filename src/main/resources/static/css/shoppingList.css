@@ -1,0 +1,30 @@
+.plus-buttom i{
+    color: #007bff!important;
+    font-size: 60px!important;
+}
+.plus-buttom{
+    position: absolute;
+    right: 100px;
+    text-align: -webkit-right;
+}
+.container .row .card-body .container .card-buttom{
+    text-align: center;
+}
+.container .row .card{
+    margin-top: 3%;
+    margin-bottom: 3%;
+    margin-left: 3%;
+    width: 21rem!important;
+    min-height: 413.688px!important;
+}
+.card .close-list{
+    text-align:right;
+}
+.buttom-modal-add i{
+    color: #007bff!important;
+    font-size: 43px!important;
+    margin-top: 1.8rem!important;
+}
+.input-width{
+    width: 94%!important;
+}

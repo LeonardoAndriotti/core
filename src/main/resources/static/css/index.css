@@ -39,12 +39,12 @@ ul{
 	list-style:none;
 }
 a{
-	color: #000;
-	text-decoration: none;
+	color: #000!important;
+	text-decoration: none!important;
 }
 a:hover{
-	color: #000;
-	text-decoration: none;
+	color: #000!important;
+	text-decoration: none!important;
 }
 .headerTwo ul li {
 	display: inline-block;
@@ -72,10 +72,24 @@ a:hover{
 }
 footer{
 	position: absolute;
-	bottom: auto;
+   	bottom: auto;
 	width: 100%;
 	padding-top: 20px;
 }
 footer ul li a{
 	color: #fff!important;
+}
+.btn-primary{
+	color: #fff!important;
+}
+.menu-lateral .category{
+	padding: 5%;
+	font-size: 12pt;
+}
+.menu-lateral .category span{
+	color:#818387;
+}
+.menu-lateral .category:hover, .menu-lateral .category span:hover{
+	cursor:pointer;
+	background-color: #e0e2e5;
 }

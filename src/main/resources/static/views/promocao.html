@@ -1,7 +1,62 @@
-<div>
-  <h1>Pagina de promoções</h1>
-  <div data-ng-repeat="pro in produtos">
-    {{pro.id + " " + pro.name}}
-teste
-  </div>
+<div class="container">
+    <section class="painel">
+        <div class="promocao">
+            <div class="formulario">
+                <form class="form-inline">
+                    <div class="form-group">
+                        <label>Procurar</label>
+                        <input type="text" ng-model="procurar" class="form-control" placeholder="Procurar...">
+                    </div>
+                </form>
+            </div>
+            <div class="ordenar">
+                <span>Ordenar por:</span>
+                <select class="select-ordenacao" ng-model="selected" ng-change="ordenar()">
+                    <option value="id" selected >Código</option>
+                    <option value="category">Categoria</option>
+                    <option value="name">Nome</option>
+                    <option value="price">Valor</option>
+                </select>
+            </div>
+            <div class="button">
+                <input type="button" value="Comprar" class="button-carrinho"></input>
+            </div>
+        </div>
+
+        <div class="lista-produtos">
+            <ol>
+                <div class="div-li">
+                    <li data-ng-repeat="pro in produtos | filter:procurar|orderBy:sortKey:reverse" class="li" ng-cloak>
+                        <input type="checkbox" ng-checked="ixists(pro, selected)" ng-click="toggle(pro, selected)">
+                        <span ng-if="exists(pro , selected)">selecionado</span> </input>
+                        <a href="/{{pro.id}}" class="link">
+                            <div class="figure">
+                                <figure> <span>{{"Cód. " + pro.id}}</span></br> <img src="{{'/image/' + pro.image}}">
+                                    <figcaption> <span>{{"Nome: " + pro.name}}</span></br>
+                                        <span>{{"Descrição: " + pro.description}}</span></br>
+                                        <span>{{"R$: " + pro.price}}</span></br>
+                                    </figcaption>
+                                </figure>
+                            </div>
+                        </a>
+                        <form name="myForm" class="form-horizontal">
+                            <div class="form-group" ng-class="{'has-error': myForm.myDecimal.$invalid}">
+                                <div class="col-sm-12 span-input">
+                                    <div class="span">
+                                        <span>Kg:</span>
+                                    </div>
+                                    <div class="input">
+                                        <input type="number" class="form-control" name="myDecimal"
+                                               placeholder="Qtde." ng-model="myDecimal"
+                                               ng-pattern="/^[0-9]+(\.[0-9]{1,2})?$/" step="0.01" min="0" required />
+                                    </div>
+                                    <span class="help-block" ng-show="!myForm.myDecimal.$valid">Valor inválido!</span>
+                                </div>
+                            </div>
+                        </form>
+                    </li>
+                </div>
+            </ol>
+        </div>
+    </section>
 </div>

@@ -103,7 +103,7 @@ public class CarrerController {
 	 public ProductDTO getProduct(BigDecimal id) throws RestClientException, IOException {
 		RestTemplate restTemplate = new RestTemplate();
 	        ResponseEntity<ProductDTO> rateResponse =
-	                restTemplate.exchange("http://localhost:8093/product/"+id,
+	                restTemplate.exchange("http://localhost:8092/product/"+id,
 	                        HttpMethod.GET, null, new ParameterizedTypeReference<ProductDTO>() {
 	                        });
 	        ProductDTO produto = rateResponse.getBody();
