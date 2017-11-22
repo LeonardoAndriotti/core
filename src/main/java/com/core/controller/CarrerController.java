@@ -22,6 +22,16 @@ import com.core.DTO.RelCarrerProductDTO;
 @RestController
 public class CarrerController {
 	
+	@RequestMapping(value = "/carrer/delete/{id}", method = RequestMethod.GET)
+	public String delete(@PathVariable BigDecimal id) {
+		 RestTemplate restTemplate = new RestTemplate();
+		 ResponseEntity<String> rateResponse =
+	                restTemplate.exchange("http://localhost:8091/carrer/"+id,
+	                        HttpMethod.DELETE, null, String.class);
+		 	
+			return rateResponse.getBody();
+	}
+	
 	@RequestMapping(value ="/carrer/{iduser}", method= RequestMethod.GET)
 	public List<RelCarrerProductDTO> getAllCarrerProduct(@PathVariable BigDecimal iduser) throws RestClientException, IOException {
 		
@@ -31,6 +41,7 @@ public class CarrerController {
 		RelCarrerProductDTO aux = new RelCarrerProductDTO();
 		for (int i = 0; i < carrer.size(); i++) {
 			RelCarrerProductDTO relCarrerProduct = new RelCarrerProductDTO();
+			relCarrerProduct.setId(carrer.get(i).getId());
 			relCarrerProduct.setIduser(carrer.get(i).getIduser());
 			relCarrerProduct.setIdproduto(products.get(i).getId());
 			relCarrerProduct.setName(products.get(i).getName());
@@ -39,13 +50,6 @@ public class CarrerController {
 			relCarrerProduct.setQuant(carrer.get(i).getQuant());
 			relCarrerProduct.setShopping(products.get(i).getShopping());
 			relCarrerProduct.setTotal(products.get(i).getPrice().multiply(relCarrerProduct.getQuant()));
-			
-			if (i != 0) {
-				relCarrerProduct.setTotal(aux.getTotal().add(products.get(i).getPrice().multiply(relCarrerProduct.getQuant())));
-				aux.setTotal(relCarrerProduct.getTotal());
-			} else {
-				aux.setTotal(relCarrerProduct.getTotal());
-			}
 			
 			relCarrerProductList.add(relCarrerProduct);
 		}
