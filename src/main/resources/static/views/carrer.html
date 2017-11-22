@@ -7,11 +7,14 @@
                     <div class="col-2">
                         <span></span>
                     </div>
-                    <div class="col-5">
+                    <div class="col-3">
                         <span>Produto</span>
                     </div>
                     <div class="col-2">
                         <span>Valor</span>
+                    </div>
+                    <div class="col-2">
+                        <span>Subtotal</span>
                     </div>
                     <div class="col-2">
                         <span>Quant</span> 
@@ -27,7 +30,7 @@
                         <hr class="star-primary">
                         <img src="{{carrinho.image}}">
                     </div>
-                    <div class="produto col-5">
+                    <div class="produto col-3">
                         <div class="row col-12">
                             <span class="col-12 font-cinza-item">{{carrinho.name}}</span>
                             <span class="merc col-12">{{carrinho.shopping}}</span>
@@ -35,6 +38,9 @@
                     </div>
                     <div class="valor col-2 font-cinza-item">
                         <span>R$ {{carrinho.price | currency: ''}}</span>
+                    </div>
+                    <div class="subtotal col-2 font-cinza-item">
+                        <span>R$ {{carrinho.total | currency: ''}}</span>
                     </div>
                     <div class="quant col-2 font-cinza-item">
                         <input class="form-control" type="number" min="1" placeholder="unit" value="{{carrinho.quant}}">
@@ -46,11 +52,10 @@
             </li>
         </ul>
         </div>
-        <div class="subtotal col-12">
+        <div class="total col-12">
         <hr class="star-primary">
         <div class="row col-12">
-            <span class="titulo col-10 no-padding">Subtotal: </span>
-<!--             <span class="valor col-2 no-padding">R$ {{carrer[carrer.length - 1].total | currency: ''}}</span> -->
+            <span class="titulo col-10 no-padding">Total: </span>
              <span class="valor col-2 no-padding">R$ {{total | currency: ''}}</span>
         </div>
         <div class="comprar col-12">

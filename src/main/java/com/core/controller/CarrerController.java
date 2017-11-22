@@ -32,6 +32,16 @@ public class CarrerController {
 			return rateResponse.getBody();
 	}
 	
+	@RequestMapping(value = "/carrer/update/{id}", method = RequestMethod.GET)
+	public String update(@PathVariable BigDecimal id) {
+		 RestTemplate restTemplate = new RestTemplate();
+		 ResponseEntity<String> rateResponse =
+	                restTemplate.exchange("http://localhost:8091/carrer/"+id,
+	                        HttpMethod.GET, null, String.class);
+		 	
+			return rateResponse.getBody();
+	}
+	
 	@RequestMapping(value ="/carrer/{iduser}", method= RequestMethod.GET)
 	public List<RelCarrerProductDTO> getAllCarrerProduct(@PathVariable BigDecimal iduser) throws RestClientException, IOException {
 		
@@ -88,7 +98,7 @@ public class CarrerController {
 		                        });
 			 	List<CarrerDTO> carrer = rateResponse.getBody();
 				return carrer;
-	    }
+	 }
 	 
 	 public ProductDTO getProduct(BigDecimal id) throws RestClientException, IOException {
 		RestTemplate restTemplate = new RestTemplate();
@@ -98,7 +108,7 @@ public class CarrerController {
 	                        });
 	        ProductDTO produto = rateResponse.getBody();
 			return produto;
-	    }
+	 }
 
 
 //	    public static void main(String[] args) throws IOException {

@@ -27,6 +27,19 @@ youBuyApp.controller("carrerController", function($scope, $http){
 
          });
     }
+    
+    $scope.atualiza = function(id){
+   	 $http({method:'GET', url: 'http://localhost:8900/carrer/update/'+id})
+        .then(function(response){
+       	 carregarCarrer();
+            $scope.retorno = response.data;
+        }, function(response){
+            console.log(response.data);
+            console.log(response.status);
+
+        });
+   }
+    
    function total(response){
 	   var total2 = 0;
     	for (var i = 0; i < response.length; i++) {

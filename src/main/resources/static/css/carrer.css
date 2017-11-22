@@ -54,23 +54,23 @@
 	margin: 0pt;
 	z-index: -1;
 }
-/*Subtotal*/
-.carrinho .subtotal .row {
+/*Total*/
+.carrinho .total .row {
 	text-align: right;
 	margin: 0;
 }
 
-.carrinho .subtotal .titulo {
+.carrinho .total .titulo {
 	font-size: 20pt !important;
 	color: #7a7a7a;
 }
 
-.carrinho .subtotal .valor {
+.carrinho .total .valor {
 	font-size: 20pt;
 	color: #a9a9a9;
 }
 
-.carrinho .subtotal .star-primary {
+.carrinho .total .star-primary {
 	border-top: 1px solid #a9a9a9;
 }
 .carrinho .comprar {
