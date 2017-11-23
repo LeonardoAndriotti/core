@@ -33,9 +33,6 @@
         }
 
         function clean() {
-            vm.product = {
-                status: true
-            };
             $window.scrollTo(0, 0);
         }
     }
