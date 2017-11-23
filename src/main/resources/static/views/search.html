@@ -27,15 +27,41 @@
                     <h4 class="card-title">{{product.name}}</h4>
                     <p class="card-text">{{product.price}}</p>
                     <div class="row">
-                        <a href="#" class="btn btn-primary col-7">COMPRAR</a>
                         <div class="input-group col-5">
-                            <input type="number" class="form-control" placeholder="{{product.unitOfMeasurement}}" aria-label="quant" aria-describedby="basic-addon1">
+                            <input type="number" class="form-control" placeholder="{{product.unitOfMeasurement}}" aria-label="quant" ng-model="value" aria-describedby="basic-addon1">
                         </div>
+                        <a href="#" class="btn btn-primary col-7" ng-click="addCart(product.id,value,product.price)" data-toggle="modal" data-target="#myModal">COMPRAR</a>
                     </div>
                 </div>
             </div>
         </div>
     </div>
 </div>
+
+</div>
+
+<div class="container">
+
+    <!-- Modal -->
+    <div class="modal fade" id="myModal" role="dialog">
+        <div class="modal-dialog">
+
+            <!-- Modal content-->
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal">&times;</button>
+                    <h4 class="modal-title">Carrinho</h4>
+                </div>
+                <div class="modal-body">
+                    <p>Seu produto foi adicionado no carrinho, com sucesso.</p>
+                </div>
+                <div class="modal-footer">
+                    <a type="button" class="btn btn-primary" href="/list/order">Ir para carrinho</a>
+                    <button type="button" class="btn btn-danger" data-dismiss="modal">Continuar comprando</button>
+                </div>
+            </div>
+
+        </div>
+    </div>
 
 </div>
