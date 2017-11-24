@@ -1,29 +1,15 @@
 package com.core.Orders;
 
+import java.math.BigDecimal;
+
 public class Order {
 
-    private Long id;
-    private Long idcarrier;
+    private BigDecimal id;
+    private BigDecimal idcarrer;
     private String datacriacao;
     private String datafinalizado;
     private String amount;
     private String status;
-
-    public Long getId() {
-        return id;
-    }
-
-    public void setId(Long id) {
-        this.id = id;
-    }
-
-    public Long getIdcarrier() {
-        return idcarrier;
-    }
-
-    public void setIdcarrier(Long idcarrier) {
-        this.idcarrier = idcarrier;
-    }
 
     public String getDatacriacao() {
         return datacriacao;
@@ -56,4 +42,21 @@ public class Order {
     public void setStatus(String status) {
         this.status = status;
     }
+
+	public BigDecimal getId() {
+		return id;
+	}
+
+	public void setId(BigDecimal id) {
+		this.id = id;
+	}
+
+	public BigDecimal getIdcarrer() {
+		return idcarrer;
+	}
+
+	public void setIdcarrer(BigDecimal idcarrer) {
+		this.idcarrer = idcarrer;
+	}
+	
 }

@@ -15,7 +15,6 @@ youBuyApp.controller("carrerController", function($scope, $http){
 
     carregarCarrer();
    
-    
     $scope.remove = function(id){
     	 $http({method:'GET', url: 'http://localhost:8900/carrer/delete/'+id})
          .then(function(response){
@@ -28,11 +27,12 @@ youBuyApp.controller("carrerController", function($scope, $http){
          });
     }
     
-    $scope.atualiza = function(id){
-   	 $http({method:'GET', url: 'http://localhost:8900/carrer/update/'+id})
+    $scope.enviar = function(){
+   	 $http({method:'POST', url: 'http://localhost:8900/order/post/'})
         .then(function(response){
        	 carregarCarrer();
             $scope.retorno = response.data;
+            alert('alou');
         }, function(response){
             console.log(response.data);
             console.log(response.status);
