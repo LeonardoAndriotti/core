@@ -6,14 +6,18 @@ import com.core.DTO.CategoryDTO;
 import com.core.DTO.ProductDTO;
 import com.core.SearchProduct.BestPriceByCategory;
 import org.springframework.core.ParameterizedTypeReference;
+import org.springframework.http.HttpEntity;
 import org.springframework.http.HttpMethod;
 import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
+import org.springframework.util.LinkedMultiValueMap;
+import org.springframework.util.MultiValueMap;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.client.RestClientException;
 import org.springframework.web.client.RestTemplate;
 
 import java.io.IOException;
+import java.math.BigDecimal;
 import java.util.List;
 
 @RestController
@@ -70,9 +74,20 @@ public class SearchController {
        return htmlCategoryMenu.genereteHtml(searchCategoryAll());
     }
 
-/*    public static void main(String[]args) throws IOException {
-        new SearchController().searchCategoryHtml();
-    }*/
+    @RequestMapping(value = "/product/save/carrier/{id}/{a}/{value}",method = RequestMethod.GET)
+    public void search(@PathVariable BigDecimal id,@PathVariable BigDecimal a,@PathVariable String value) {
+
+        MultiValueMap<String, String> headers = new LinkedMultiValueMap<String, String>();
+        headers.add("HeaderName", "value");
+        headers.add("Content-Type", "application/json");
+
+        HttpEntity<?> httpEntity = new HttpEntity<Object>(id,headers);
+        RestTemplate restTemplate = new RestTemplate();
+        ResponseEntity<String> response
+                = restTemplate.exchange("http://localhost:8980/carrer/", HttpMethod.POST, httpEntity, String.class);
+
+       System.out.println(id +" "+ a + "" + value);
+    }
 
 
 }
