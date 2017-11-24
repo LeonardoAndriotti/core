@@ -7,6 +7,7 @@ import java.util.List;
 
 import org.springframework.core.ParameterizedTypeReference;
 import org.springframework.http.HttpMethod;
+import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -31,16 +32,6 @@ public class CarrerController {
 		 	
 			return rateResponse.getBody();
 	}
-	
-//	@RequestMapping(value = "/carrer/update/{id}", method = RequestMethod.GET)
-//	public String update(@PathVariable BigDecimal id) {
-//		 RestTemplate restTemplate = new RestTemplate();
-//		 ResponseEntity<String> rateResponse =
-//	                restTemplate.exchange("http://localhost:8091/carrer/"+id,
-//	                        HttpMethod.GET, null, String.class);
-//		 	
-//			return rateResponse.getBody();
-//	}
 	
 	@RequestMapping(value ="/carrer/{iduser}", method= RequestMethod.GET)
 	public List<RelCarrerProductDTO> getAllCarrerProduct(@PathVariable BigDecimal iduser) throws RestClientException, IOException {
