@@ -1,22 +1,24 @@
 <div class="container">
-    <div class="col-12 row" style="padding-top: 20px;">
-        <div class="col-3"></div>
-        <div class="col-6">
-            <div>
-                <div uib-alert ng-repeat="alert in vm.alerts" ng-class="'alert-' + (alert.type || 'warning')"
-                     close="vm.closeAlert($index)" dismiss-on-timeout="{{alert.timeout}}">{{alert.msg}}
+    <form>
+        <div class="col-12 row" style="padding-top: 20px;">
+            <div class="col-3"></div>
+            <div class="col-6">
+                <div>
+                    <div uib-alert ng-repeat="alert in vm.alerts" ng-class="'alert-' + (alert.type || 'warning')"
+                         close="vm.closeAlert($index)" dismiss-on-timeout="{{alert.timeout}}">{{alert.msg}}
+                    </div>
                 </div>
-            </div>
-            <form>
                 <h2 style="text-align: center;">Cadastro de produto</h2>
                 <div class="form-group">
                     <label for="name">Nome</label><label style="color: red">&nbsp;*</label>
                     <input ng-model="vm.product.name" type="text" class="form-control" id="name" required>
                 </div>
-                <div class="form-group">
-                    <label for="price">Preço</label><label style="color: red">&nbsp;*</label>
-                    <input ng-model="vm.product.price" type="number" class="form-control" id="price" required>
-                </div>
+            </div>
+        </div>
+
+        <div class="col-12 row">
+            <div class="col-3"></div>
+            <div class="col-3">
                 <div class="form-group">
                     <label for="quantity">Quantidade</label><label style="color: red">&nbsp;*</label>
                     <input ng-model="vm.product.quantity" class="form-control" type="number" value="1" id="quantity"
@@ -31,45 +33,66 @@
                     </select>
                 </div>
                 <div class="form-group">
-                    <label for="shelfLife">Data de Validade</label>
-                    <input ng-model="vm.product.shelfLife" class="form-control" type="date" value="2017-12-31"
-                           id="shelfLife">
-                </div>
-                <div class="form-group">
                     <label for="shopping">Mercado</label>
                     <input ng-model="vm.product.shopping" type="text" class="form-control" id="shopping">
                 </div>
+            </div>
+            <div class="col-3">
                 <div class="form-group">
-                    <label for="weight">Peso</label>
-                    <input ng-model="vm.product.weight" type="number" class="form-control" id="weight">
+                    <label for="price">Preço</label><label style="color: red">&nbsp;*</label>
+                    <input ng-model="vm.product.price" type="number" class="form-control" id="price" required>
                 </div>
                 <div class="form-group">
-                    <label for="unit">Unidade</label>
-                    <input ng-model="vm.product.unit" type="number" class="form-control" id="unit">
-                </div>
-                <div class="form-group">
-                    <label for="unitOfMeasurement">Unidade de Medida</label>
-                    <input ng-model="vm.product.unitOfMeasurement" type="number" class="form-control"
-                           id="unitOfMeasurement">
+                    <label for="shelfLife">Data de Validade</label>
+                    <input ng-model="vm.product.shelfLife" class="form-control" type="date" value="2017-12-31"
+                           id="shelfLife">
                 </div>
                 <div class="form-group">
                     <label for="image">Carregar Imagem</label>
                     <input ng-model="vm.product.image" type="text" class="form-control" id="image"
                            placeholder="Digite a URL da image aqui">
                 </div>
+            </div>
+        </div>
+
+        <div class="col-12 row">
+            <div class="col-3"></div>
+            <div class="col-6">
                 <div class="form-group">
                     <label for="description">Descrição</label>
                     <textarea ng-model="vm.product.description" class="form-control" id="description"
                               rows="3"></textarea>
                 </div>
+            </div>
+        </div>
+
+        <div class="col-12 row">
+            <div class="col-5"></div>
+            <div class="col-1">
                 <div class="form-check">
                     <label for="status" class="form-check-label">
                         <input ng-model="vm.product.status" type="checkbox" class="form-check-input" id="status">
                         Ativo
                     </label>
                 </div>
+            </div>
+            <div class="col-6">
                 <button type="submit" ng-click="vm.registerProduct()" class="btn btn-primary">Cadastrar</button>
-            </form>
+            </div>
         </div>
-    </div>
+    </form>
 </div>
+
+<!--<div class="form-group">-->
+<!--<label for="weight">Peso</label>-->
+<!--<input ng-model="vm.product.weight" type="number" class="form-control" id="weight">-->
+<!--</div>-->
+<!--<div class="form-group">-->
+<!--<label for="unit">Unidade</label>-->
+<!--<input ng-model="vm.product.unit" type="number" class="form-control" id="unit">-->
+<!--</div>-->
+<!--<div class="form-group">-->
+<!--<label for="unitOfMeasurement">Unidade de Medida</label>-->
+<!--<input ng-model="vm.product.unitOfMeasurement" type="number" class="form-control"-->
+<!--id="unitOfMeasurement">-->
+<!--</div>-->
