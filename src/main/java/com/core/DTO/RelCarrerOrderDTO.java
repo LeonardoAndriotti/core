@@ -1,22 +1,22 @@
 package com.core.DTO;
 
-import java.math.BigDecimal;
-
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+
+import java.math.BigDecimal;
 
 @JsonIgnoreProperties(ignoreUnknown = true)
 public class RelCarrerOrderDTO {
 	
 	private BigDecimal id;
-	private BigDecimal idcarrer;
+	private BigDecimal idCarrer;
 	private BigDecimal total;	
 	
-	public BigDecimal getIdcarrer() {
-		return idcarrer;
+	public BigDecimal getIdCarrer() {
+		return idCarrer;
 	}
 	
-	public void setIdcarrer(BigDecimal idcarrer) {
-		this.idcarrer = idcarrer;
+	public void setIdCarrer(BigDecimal idCarrer) {
+		this.idCarrer = idCarrer;
 	}
 	
 	public BigDecimal getTotal() {
