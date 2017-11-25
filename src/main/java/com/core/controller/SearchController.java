@@ -2,6 +2,8 @@ package com.core.controller;
 
 import com.core.Category.CategoryTree;
 import com.core.Category.HtmlCategoryMenu;
+import com.core.DTO.CarrerDTO;
+import com.core.DTO.CarrerLeoDTO;
 import com.core.DTO.CategoryDTO;
 import com.core.DTO.ProductDTO;
 import com.core.SearchProduct.BestPriceByCategory;
@@ -74,19 +76,24 @@ public class SearchController {
        return htmlCategoryMenu.genereteHtml(searchCategoryAll());
     }
 
-    @RequestMapping(value = "/product/save/carrier/{id}/{a}/{value}",method = RequestMethod.GET)
-    public void search(@PathVariable BigDecimal id,@PathVariable BigDecimal a,@PathVariable String value) {
+    @RequestMapping(value = "/product/save/carrier/{id}/{quant}/{value}",method = RequestMethod.GET)
+    public void search(@PathVariable BigDecimal id,@PathVariable BigDecimal quant,@PathVariable String value) {
+
+        CarrerLeoDTO carrerDTO = new CarrerLeoDTO();
+        carrerDTO.setIdproduto(id);
+        carrerDTO.setQuant(quant);
+        carrerDTO.setPreco(BigDecimal.valueOf(Double.parseDouble(value.replace(",","."))));
+        carrerDTO.setIduser(BigDecimal.ONE);
 
         MultiValueMap<String, String> headers = new LinkedMultiValueMap<String, String>();
         headers.add("HeaderName", "value");
         headers.add("Content-Type", "application/json");
 
-        HttpEntity<?> httpEntity = new HttpEntity<Object>(id,headers);
+        HttpEntity<?> httpEntity = new HttpEntity<Object>(carrerDTO,headers);
         RestTemplate restTemplate = new RestTemplate();
-        ResponseEntity<String> response
-                = restTemplate.exchange("http://localhost:8980/carrer/", HttpMethod.POST, httpEntity, String.class);
+        ResponseEntity<CarrerLeoDTO> response
+                = restTemplate.exchange("http://localhost:8980/carrer/", HttpMethod.POST, httpEntity, CarrerLeoDTO.class);
 
-       System.out.println(id +" "+ a + "" + value);
     }
 
 
