@@ -15,12 +15,10 @@ youBuyApp.controller('searchController', function ($scope, $http) {
         });
     };
     $scope.addCart = function (id,quant,value) {
-      //  var teste = parse(value.substring(2));
         var money = value.replace("R$","").replace(".",",");
         $http.get('http://localhost:8900/api/product/save/carrier/'+id +'/'+quant+'/'+money).then(function (response) {
             $scope.products = convertMoney(response);
         });
-      alert(id +" "+ quant + " " + value.substring(2));
     };
 
     $scope.search = function () {
