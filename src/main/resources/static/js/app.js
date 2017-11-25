@@ -19,7 +19,7 @@ youBuyApp.config(function ($routeProvider, $locationProvider) {
         controller: 'productRegistrationController as vm'
     }).when("/shoppingList", {
         templateUrl: 'views/shoppingList.html',
-        controller: 'shoppingListController as vm'
+        controller: 'shoppingListController'
     }).when("/carrer", {
         templateUrl: 'views/carrer.html',
         controller: 'carrerController'
@@ -27,5 +27,5 @@ youBuyApp.config(function ($routeProvider, $locationProvider) {
         rediretTo: '/'
     });
 
-    $locationProvider.hashPrefix('').html5Mode(true);
+    $locationProvider.hashPrefix('').html5Mode(false);
 });
