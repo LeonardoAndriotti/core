@@ -1,95 +1,97 @@
 package com.core.DTO;
 
-import java.math.BigDecimal;
-
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+
+import java.math.BigDecimal;
 
 @JsonIgnoreProperties(ignoreUnknown = true)
 public class RelCarrerProductDTO {
 
-// Atributos da Classe
-	private BigDecimal id;
-// Atributos do Carrinho
-	private BigDecimal quant;
-	private BigDecimal iduser;
-	private BigDecimal idproduto;
-	private BigDecimal total;
-//	Atributos do Produto
-	private String name;
+    // Atributos da Classe
+    private BigDecimal id;
+
+    // Atributos do Carrinho
+    private BigDecimal quantidade;
+    private BigDecimal idUser;
+    private BigDecimal idProduto;
+    private BigDecimal total;
+
+    //	Atributos do Produto
+    private String name;
     private BigDecimal price;
     private String shopping;
     private String image;
 
-	public BigDecimal getId() {
-		return id;
-	}
+    public BigDecimal getId() {
+        return id;
+    }
 
-	public void setId(BigDecimal id) {
-		this.id = id;
-	}
+    public void setId(BigDecimal id) {
+        this.id = id;
+    }
 
-	public BigDecimal getQuant() {
-		return quant;
-	}
+    public BigDecimal getQuantidade() {
+        return quantidade;
+    }
 
-	public void setQuant(BigDecimal quant) {
-		this.quant = quant;
-	}
+    public void setQuantidade(BigDecimal quantidade) {
+        this.quantidade = quantidade;
+    }
 
-	public BigDecimal getIduser() {
-		return iduser;
-	}
+    public BigDecimal getIdUser() {
+        return idUser;
+    }
 
-	public void setIduser(BigDecimal iduser) {
-		this.iduser = iduser;
-	}
+    public void setIdUser(BigDecimal idUser) {
+        this.idUser = idUser;
+    }
 
-	public BigDecimal getIdproduto() {
-		return idproduto;
-	}
+    public BigDecimal getIdProduto() {
+        return idProduto;
+    }
 
-	public void setIdproduto(BigDecimal idproduto) {
-		this.idproduto = idproduto;
-	}
+    public void setIdProduto(BigDecimal idProduto) {
+        this.idProduto = idProduto;
+    }
 
-	public BigDecimal getTotal() {
-		return total;
-	}
+    public BigDecimal getTotal() {
+        return total;
+    }
 
-	public void setTotal(BigDecimal total) {
-		this.total = total;
-	}
+    public void setTotal(BigDecimal total) {
+        this.total = total;
+    }
 
-	public String getName() {
-		return name;
-	}
+    public String getName() {
+        return name;
+    }
 
-	public void setName(String name) {
-		this.name = name;
-	}
+    public void setName(String name) {
+        this.name = name;
+    }
 
-	public BigDecimal getPrice() {
-		return price;
-	}
+    public BigDecimal getPrice() {
+        return price;
+    }
 
-	public void setPrice(BigDecimal price) {
-		this.price = price;
-	}
+    public void setPrice(BigDecimal price) {
+        this.price = price;
+    }
 
-	public String getShopping() {
-		return shopping;
-	}
+    public String getShopping() {
+        return shopping;
+    }
 
-	public void setShopping(String shopping) {
-		this.shopping = shopping;
-	}
+    public void setShopping(String shopping) {
+        this.shopping = shopping;
+    }
 
-	public String getImage() {
-		return image;
-	}
+    public String getImage() {
+        return image;
+    }
 
-	public void setImage(String image) {
-		this.image = image;
-	}
+    public void setImage(String image) {
+        this.image = image;
+    }
 
 }
