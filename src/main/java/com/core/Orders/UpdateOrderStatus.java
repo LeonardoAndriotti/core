@@ -9,25 +9,21 @@ import java.math.BigDecimal;
 
 public class UpdateOrderStatus {
 
-    public OrderStatus updateStatusOrder(OrderStatus order,BigDecimal id) {
+    public OrderStatus updateStatusOrder(OrderStatus order, BigDecimal id) {
 
-        String url = "http://status.getsandbox.com/orders/" + order.getStatus();
-        RestTemplate restTemplate = new RestTemplate();
-        ResponseEntity<OrderStatus> response =
-                restTemplate.exchange(url,
-                        HttpMethod.GET, null, new ParameterizedTypeReference<OrderStatus>() {
-                        });
+       OrderStatus response = validadeStatusOrder(order.getStatus());
 
-        if (response.getBody().getStatus().equals("ENTREGUE")) {
-           System.out.println("Finalizando Pedido " + response.getBody().getStatus());
-            updateOrderApi(id, response.getBody().getStatus());
-            return response.getBody();
+
+        if (response.getStatus().equals("ENTREGUE")) {
+            System.out.println("Finalizando Pedido " + response.getStatus());
+            updateOrderApi(id, response.getStatus());
+            return response;
         }
 
-         System.out.println("Atualizando estados de pedido " + response.getBody().getStatus());
-        updateOrderApi(BigDecimal.ONE, response.getBody().getStatus());
+        System.out.println("Atualizando estados de pedido " + response.getStatus());
+        updateOrderApi(BigDecimal.ONE, response.getStatus());
 
-        return updateStatusOrder(response.getBody(),id);
+        return updateStatusOrder(response, id);
     }
 
     private void updateOrderApi(BigDecimal idOrder, String orderStatus) {
@@ -36,6 +32,20 @@ public class UpdateOrderStatus {
         ResponseEntity<String> response =
                 restTemplate.exchange(url,
                         HttpMethod.PUT, null, String.class);
+    }
+
+
+    private OrderStatus validadeStatusOrder(String statusAtual) {
+        OrderStatus orderStatus = new OrderStatus();
+        if (statusAtual.equals("PENDENTE")) {
+            orderStatus.setStatus("APROVADO");
+        } else if (statusAtual.equals("APROVADO")) {
+            orderStatus.setStatus("ACAMINHO");
+        } else if (statusAtual.equals("ACAMINHO")) {
+            orderStatus.setStatus("ENTREGUE");
+        }
+
+        return orderStatus;
     }
 
 }

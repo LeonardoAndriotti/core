@@ -1,6 +1,6 @@
 <div ng-controller="shoppingListController">
     <div class="container">
-        <div class="row pb-3 mt-3" style="margin-left: 0rem!important;margin-right: -0.3rem!important;">
+<!--        <div class="row pb-3 mt-3" style="margin-left: 0rem!important;margin-right: -0.3rem!important;">
             <div class="container">
                 <div class="input-group">
                     <input type="text" class="form-control" placeholder="Digite a lista de compra que procura"
@@ -15,17 +15,18 @@
 					</span>
                 </div>
             </div>
-        </div>
+        </div>-->
     </div>
     <div class="container">
         <div class="row">
-            <div class="card" style="width: 20rem;">
+
+            <div class="card" style="width: 20rem;" ng-repeat="list in listAll">
                 <div class="card-body p-0">
-                    <div class="card-body p-0">
+                    <div class="card-body p-0" ng-style="{'background-color': list.color}">
                         <h4 class="card-header col">
                             <div class="row">
                                 <div class="col-10">
-                                    Titulo
+                                    {{list.name}}
                                 </div>
                                 <div class="col-2 close-list">
                                     <i class="fa fa-times text-danger" aria-hidden="true"></i>
@@ -35,92 +36,28 @@
                         </h4>
                     </div>
                     <div class="container">
-                        <p class="">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
-                            tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
-                            quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
-                            consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
-                            cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
-                            proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
-                        <div class="col-12 card-buttom">
-                            <a href="#" class="btn btn-primary col-10">Ver itens</a>
+                        <p class="">{{list.description}}</p>
+                        <div class="col-12 card-buttom" style="bottom: 5%;position: absolute;">
+                            <a style="cursor: pointer" class="btn btn-primary col-10" ng-click="viewList(list.id)">Comprar</a>
                         </div>
                     </div>
+<!--
                     <footer class="blockquote-footer">Atualização: <cite title="Source Title">31/10/2017</cite></footer>
-                </div>
-            </div>
-
-            <div class="card" style="width: 20rem;">
-                <div class="card-body p-0">
-                    <div class="card-body p-0">
-                        <h4 class="card-header col">
-                            <div class="row">
-                                <div class="col-10">
-                                    Titulo
-                                </div>
-                                <div class="col-2 close-list">
-                                    <i class="fa fa-times text-danger" aria-hidden="true"></i>
-                                </div>
-                            </div>
-
-                        </h4>
-                    </div>
-                    <div class="container">
-                        <p class="">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
-                            tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
-                            quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
-                            consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
-                            cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
-                            proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
-                        <div class="col-12 card-buttom">
-                            <a href="#" class="btn btn-primary col-10">Ver itens</a>
-                        </div>
-                    </div>
-                    <footer class="blockquote-footer">Atualização: <cite title="Source Title">31/10/2017</cite></footer>
-                </div>
-            </div>
-
-
-            <div class="card" style="width: 20rem;">
-                <div class="card-body p-0">
-                    <div class="card-body p-0">
-                        <h4 class="card-header col">
-                            <div class="row">
-                                <div class="col-10">
-                                    Titulo
-                                </div>
-                                <div class="col-2 close-list">
-                                    <i class="fa fa-times text-danger" aria-hidden="true"></i>
-                                </div>
-                            </div>
-
-                        </h4>
-                    </div>
-                    <div class="container">
-                        <p class="">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
-                            tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
-                            quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
-                            consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
-                            cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
-                            proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
-                        <div class="col-12 card-buttom">
-                            <a href="#" class="btn btn-primary col-10">Ver itens</a>
-                        </div>
-                    </div>
-                    <footer class="blockquote-footer">Atualização: <cite title="Source Title">31/10/2017</cite></footer>
+-->
                 </div>
             </div>
         </div>
     </div>
 </div>
 <div class="col plus-buttom">
-    <a href="" data-toggle="modal" data-target="#myModal">
+    <a data-toggle="modal" data-target="#list" style="cursor: pointer" ng-click="newList()">
         <i class="fa fa-plus-circle" aria-hidden="true" title="Criar nova lista de compras"></i>
     </a>
 </div>
 
 
 <!-- Modal -->
-<div class="modal fade" id="myModal" role="dialog">
+<div class="modal fade" id="list" role="dialog">
     <div class="modal-dialog modal-lg">
 
         <!-- Modal content-->
@@ -130,9 +67,6 @@
                 <h4 class="modal-title">Nova lista de compra</h4>
             </div>
             <div class="modal-body">
-                <div uib-alert ng-repeat="alert in vm.alerts" ng-class="'alert-' + (alert.type || 'warning')"
-                     close="vm.closeAlert($index)" dismiss-on-timeout="{{alert.timeout}}">{{alert.msg}}
-                </div>
                 <form>
                     <div class="jumbotron">
                         <div class="">
@@ -142,52 +76,57 @@
                         <div class="form-row">
                             <div class="form-group col-md-6">
                                 <label for="name">Nome Lista</label>
-                                <input ng-model="vm.shoppingList.name" type="text" class="form-control" id="name"
+                                <input ng-model="name" value="retorno.name" type="text" class="form-control" id="name2"
                                        placeholder="Insira um nome para sua lista de compras" required>
                             </div>
                             <div class="form-group col-md-6">
                                 <label for="description">Descrisão</label>
-                                <input ng-model="vm.shoppingList.description" type="text" class="form-control" id="description"
+                                <input ng-model="description" type="text" class="form-control"
+                                       id="description"
                                        placeholder="Informe uma breve descrisão">
                             </div>
                         </div>
                         <div class="form-group">
                             <div class="form-check">
                                 <label for="notification" class="form-check-label">
-                                    <input ng-model="vm.shoppingList.notification" class="form-check-input" type="checkbox" id="notification">
+                                    <input ng-model="notification" class="form-check-input"
+                                           type="checkbox" id="notification">
                                     Ativar notificações ? <i class="fa fa-bell-o" aria-hidden="true"
                                                              style="color: #000!important;"></i>
                                 </label>
                             </div>
                         </div>
-                        <div class="form-group" ng-show="vm.shoppingList.notification">
+                        <div class="form-group" ng-show="notification">
                             <div class="row container">
                                 <div class="form-check">
                                     <label for="weekly" class="form-check-label mr-2">
-                                        <input ng-model="vm.shoppingList.weekly" class="form-check-input" type="checkbox" id="weekly"> Semanal
+                                        <input ng-model="weekly" class="form-check-input"
+                                               type="checkbox" id="weekly"> Semanal
                                     </label>
                                 </div>
                                 <div class="form-check">
                                     <label for="monthly" class="form-check-label mr-2">
-                                        <input ng-model="vm.shoppingList.monthly" class="form-check-input" type="checkbox" id="monthly"> Mensal
+                                        <input ng-model="monthly" class="form-check-input"
+                                               type="checkbox" id="monthly"> Mensal
                                     </label>
                                 </div>
                                 <div class="form-check">
                                     <label for="onlyOnce" class="form-check-label mr-2">
-                                        <input ng-model="vm.shoppingList.onlyOnce" class="form-check-input" type="checkbox" id="onlyOnce"> Uma única vez
+                                        <input ng-model="onlyOnce" class="form-check-input"
+                                               type="checkbox" id="onlyOnce"> Uma única vez
                                     </label>
                                 </div>
                             </div>
                         </div>
-                        <div class="form-group" ng-show="vm.shoppingList.onlyOnce">
+                        <div class="form-group" ng-show="onlyOnce">
                             <label for="alertDate">Informe a data que deseja ser informado</label>
-                            <input ng-model="vm.shoppingList.alertDate" type="date" class="form-control" id="alertDate"
+                            <input ng-model="alertDate" type="date" class="form-control" id="alertDate"
                                    placeholder="Informe a data e hora deseja ser informado">
                         </div>
-                        <div class="row container" ng-show="vm.shoppingList.weekly">
+                        <div class="row container" ng-show="weekly">
                             <div class="form-group mr-2">
                                 <label for="dayWeek">Informe dia da semana e a </label>
-                                <select ng-model="vm.shoppingList.dayWeek" class="form-control" id="dayWeek">
+                                <select ng-model="dayWeek" class="form-control" id="dayWeek">
                                     <option>Domingo</option>
                                     <option>Segunda-feira</option>
                                     <option>Terça-feira</option>
@@ -198,51 +137,206 @@
                                 </select>
                             </div>
                         </div>
-                        <div class="form-group" ng-show="vm.shoppingList.monthly">
+                        <div class="form-group" ng-show="monthly">
                             <label for="dayMonth">Informe do mês que deseja ser informado</label>
-                            <input ng-model="vm.shoppingList.dayMonth" type="date" class="form-control" id="dayMonth"
+                            <input ng-model="dayMonth" type="date" class="form-control" id="dayMonth"
                                    placeholder="Informe do mês que deseja ser informado">
                         </div>
 
                         <div class="form-group">
                             <label for="color" class="">Selecione uma Cor</label>
-                            <input ng-model="vm.shoppingList.color" class="form-control" type="color" value="#563d7c" id="color">
+                            <input ng-model="color" class="form-control" type="color" value="#563d7c"
+                                   id="color">
                             <small>obs. utilize a cor de templete para melhor vizualização em tela.</small>
                         </div>
+                        <div class="text-right">
+                            <button ng-click="newShoppingList()" class="btn btn-primary">Vamos cadastrar seus
+                                Produtos?
+                            </button>
+                        </div>
                     </div>
-                    <br>
+                </form>
+                <br>
+                <form ng-if="insertProductNewList">
                     <div class="">
                         <h3 class="">Adicione seus produtos na lista</h3>
                         <hr class="my-4">
                     </div>
-                    <div class="row container">
-                        <div class="form-group input-width">
-                            <label for="productName">Produto</label>
-                            <input ng-model="vm.shoppingList.productName" type="text" class="form-control" id="productName"
+                    <div class="row container" name="form.prod">
+                        <div ng-show="false">{{idList}}</div>
+                        <div class="form-group input-width col-md-8">
+                            <label for="product">Produto</label>
+                            <input ng-model="product" type="text" class="form-control"
+                                   id="product"
                                    placeholder="Informe o produto que deseja">
                         </div>
+                        <div class="form-group col-md-3">
+                            <label for="amount">Quant.</label>
+                            <input ng-model="amount" type="number" class="form-control" id="amount">
+                        </div>
                         <div class="buttom-modal-add  ml-1">
-                            <a href="">
-                                <i class="fa fa-plus-circle" aria-hidden="true" title="Criar nova lista de compras"></i>
+                            <a ng-click="newProduct(idList,product, amount)">
+                                <i class="fa fa-plus-circle" aria-hidden="true" title="Adicionar produto na lista"></i>
                             </a>
                         </div>
                     </div>
+                </form>
+                <table class="table" ng-if="insertProductNewList">
+                    <thead>
+                    <tr>
+                        <th>#</th>
+                        <th>Produto</th>
+                        <th>Marca</th>
+                        <th>Quant</th>
+                        <th class="text-center">Remover</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    <tr ng-repeat="prod in listProd">
+                        <th scope="row">{{prod.id}}</th>
+                        <td>{{prod.productName}}</td>
+                        <td>{{prod.brand}}</td>
+                        <td>{{prod.quantity}}</td>
+                        <td class="text-center" ng-click="remove(prod.id)">
+                            <i class="fa fa-times text-danger" aria-hidden="true"></i>
+                        </td>
+                    </tr>
+                    </tbody>
+                </table>
 
-                    <div class="form-row">
-                        <!-- 							<div class="form-group col-md-6">
-                                                        <label for="inputCity">City</label>
-                                                        <input type="text" class="form-control" id="inputCity">
-                                                    </div>
-                                                    <div class="form-group col-md-4">
-                                                        <label for="inputState">State</label>
-                                                        <select id="inputState" class="form-control">
-                                                            <option selected>Choose...</option>
-                                                            <option>...</option>
-                                                        </select>
-                                                    </div> -->
+                <div class="modal-footer" ng-if="insertProductNewList">
+                    <button type="button" class="btn btn-danger" data-dismiss="modal">Fechar</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!--
+Modal 2-->
+
+<!-- Modal -->
+<div class="modal fade" id="list2" role="dialog">
+    <div class="modal-dialog modal-lg">
+
+        <!-- Modal content-->
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal">&times;</button>
+                <h4 class="modal-title">Nova lista de compra</h4>
+            </div>
+            <div class="modal-body">
+                <form>
+                    <div class="jumbotron">
+                        <div class="">
+                            <h3 class="">Descrisão da lista</h3>
+                            <hr class="my-4">
+                        </div>
+                        <div class="form-row">
+                            <div class="form-group col-md-6">
+                                <label for="name">Nome Lista</label>
+                                <input ng-model="name" type="text" class="form-control" id="name"
+                                       placeholder="Insira um nome para sua lista de compras" required>
+                            </div>
+                            <div class="form-group col-md-6">
+                                <label for="description">Descrisão</label>
+                                <input ng-model="description" type="text" class="form-control"
+                                       id="description"
+                                       placeholder="Informe uma breve descrisão">
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <div class="form-check">
+                                <label for="notification" class="form-check-label">
+                                    <input ng-model="notification" class="form-check-input"
+                                           type="checkbox" id="notification">
+                                    Ativar notificações ? <i class="fa fa-bell-o" aria-hidden="true"
+                                                             style="color: #000!important;"></i>
+                                </label>
+                            </div>
+                        </div>
+                        <div class="form-group" ng-show="notification">
+                            <div class="row container">
+                                <div class="form-check">
+                                    <label for="weekly" class="form-check-label mr-2">
+                                        <input ng-model="weekly" class="form-check-input"
+                                               type="checkbox" id="weekly"> Semanal
+                                    </label>
+                                </div>
+                                <div class="form-check">
+                                    <label for="monthly" class="form-check-label mr-2">
+                                        <input ng-model="monthly" class="form-check-input"
+                                               type="checkbox" id="monthly"> Mensal
+                                    </label>
+                                </div>
+                                <div class="form-check">
+                                    <label for="onlyOnce" class="form-check-label mr-2">
+                                        <input ng-model="onlyOnce" class="form-check-input"
+                                               type="checkbox" id="onlyOnce"> Uma única vez
+                                    </label>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="form-group" ng-show="onlyOnce">
+                            <label for="alertDate">Informe a data que deseja ser informado</label>
+                            <input ng-model="alertDate" type="date" class="form-control" id="alertDate"
+                                   placeholder="Informe a data e hora deseja ser informado">
+                        </div>
+                        <div class="row container" ng-show="weekly">
+                            <div class="form-group mr-2">
+                                <label for="dayWeek">Informe dia da semana e a </label>
+                                <select ng-model="dayWeek" class="form-control" id="dayWeek">
+                                    <option>Domingo</option>
+                                    <option>Segunda-feira</option>
+                                    <option>Terça-feira</option>
+                                    <option>Quarta-feira</option>
+                                    <option>Quinta-feira</option>
+                                    <option>Sexta-feira</option>
+                                    <option>Sabado</option>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="form-group" ng-show="monthly">
+                            <label for="dayMonth">Informe do mês que deseja ser informado</label>
+                            <input ng-model="dayMonth" type="date" class="form-control" id="dayMonth"
+                                   placeholder="Informe do mês que deseja ser informado">
+                        </div>
+
+                        <div class="form-group">
+                            <label for="color" class="">Selecione uma Cor</label>
+                            <input ng-model="color" class="form-control" type="color" value="#563d7c"
+                                   id="color">
+                            <small>obs. utilize a cor de templete para melhor vizualização em tela.</small>
+                        </div>
+                        <div class="text-right">
+                            <button ng-click="newShoppingList()" class="btn btn-primary">Vamos cadastrar seus
+                                Produtos?
+                            </button>
+                        </div>
+                    </div>
+                </form>
+                <br>
+                <form>
+                    <div class="">
+                        <h3 class="">Adicione seus produtos na lista</h3>
+                        <hr class="my-4">
+                    </div>
+                    <div class="row container" name="form.prod">
+                        <div ng-show="false">{{idList}}</div>
+                        <div class="form-group input-width col-md-8">
+                            <label for="product">Produto</label>
+                            <input ng-model="product" type="text" class="form-control"
+                                   id="product"
+                                   placeholder="Informe o produto que deseja">
+                        </div>
                         <div class="form-group col-md-3">
-                            <label for="quantity">Quant.</label>
-                            <input ng-model="vm.shoppingList.quantity" type="number" class="form-control" id="quantity">
+                            <label for="amount">Quant.</label>
+                            <input ng-model="amount" type="number" class="form-control" id="amount">
+                        </div>
+                        <div class="buttom-modal-add  ml-1">
+                            <a ng-click="newProduct(idList,product, amount)">
+                                <i class="fa fa-plus-circle" aria-hidden="true" title="Adicionar produto na lista"></i>
+                            </a>
                         </div>
                     </div>
                 </form>
@@ -257,37 +351,22 @@
                     </tr>
                     </thead>
                     <tbody>
-                    <tr>
-                        <th scope="row">1</th>
-                        <td>Produto A</td>
-                        <td>Tiozão</td>
-                        <td>15</td>
-                        <td class="text-center">
+                    <tr ng-repeat="prod in listProd">
+                        <th scope="row">{{prod.id}}</th>
+                        <td>{{prod.productName}}</td>
+                        <td>{{prod.brand}}</td>
+                        <td>{{prod.quantity}}</td>
+                        <td class="text-center" ng-click="remove(prod.id)">
                             <i class="fa fa-times text-danger" aria-hidden="true"></i>
                         </td>
                     </tr>
-                    <tr>
-                        <th scope="row">2</th>
-                        <td>Produto B</td>
-                        <td>Tiozão</td>
-                        <td>1</td>
-                        <td class="text-center"><i class="fa fa-times text-danger" aria-hidden="true"></i></td>
-                    </tr>
-                    <tr>
-                        <th scope="row">3</th>
-                        <td>Produto C</td>
-                        <td>Tiozão</td>
-                        <td>2</td>
-                        <td class="text-center"><i class="fa fa-times text-danger" aria-hidden="true"></i></td>
-                    </tr>
                     </tbody>
                 </table>
-            </div>
-            <div class="modal-footer">
-                <button type="submit" ng-click="vm.newShoppingList()" class="btn btn-primary">Cadastrar</button>
-                <button type="button" class="btn btn-danger" data-dismiss="modal">Fechar</button>
+
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-danger" data-dismiss="modal">Fechar</button>
+                </div>
             </div>
         </div>
     </div>
-</div>
 </div>
