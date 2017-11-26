@@ -31,7 +31,7 @@
                         <span ng-if="exists(pro , selected)">selecionado</span> </input>
                         <a href="/{{pro.id}}" class="link">
                             <div class="figure">
-                                <figure> <span>{{"Cód. " + pro.id}}</span></br> <img src="{{'/image/' + pro.image}}">
+                                <figure> <span>{{"Cód. " + pro.id}}</span></br> <img ng-src="{{'/image/' + pro.image}}">
                                     <figcaption> <span>{{"Nome: " + pro.name}}</span></br>
                                         <span>{{"Descrição: " + pro.description}}</span></br>
                                         <span>{{"R$: " + pro.price}}</span></br>
