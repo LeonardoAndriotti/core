@@ -21,7 +21,7 @@ youBuyApp.controller('shoppingListController', function ($scope, $http) {
         $http.get('http://localhost:8900/api/create/new/list/'
             + $scope.name
             + "/" + $scope.description + "/"
-            + $scope.color.substr(1))
+            + 'DDDDDD')
             .then(function (response) {
                 $scope.insertProductNewList = true;
                 $scope.idList = response.data;
